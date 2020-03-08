@@ -1,12 +1,12 @@
 import React from "react";
 import { Container, Button, Text } from "native-base";
 
-const Home = () => {
+const SignIn = () => {
   return (
     <Container style={{ alignItems: "center", justifyContent: "center" }}>
-      <Text>Home</Text>
+      <Text>SignIn</Text>
     </Container>
   );
 };
 
-export default Home;
+export default SignIn;
