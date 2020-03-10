@@ -1,21 +1,16 @@
-import {
-  connect
-} from 'react-redux';
-import Welcome from './Welcome';
+import { connect } from "react-redux";
+import Welcome from "./Welcome";
 
 const mapStateToProps = state => {
-  return {}
+  const { infoList } = state.welcome;
+
+  return { infoList };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-
-  }
+  return {};
 };
 
-const WelcomeContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Welcome);
+const WelcomeContainer = connect(mapStateToProps, mapDispatchToProps)(Welcome);
 
 export default WelcomeContainer;
