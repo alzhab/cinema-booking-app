@@ -5,12 +5,16 @@ import { Text, Flex } from "atoms";
 import { Spacing } from "styles";
 import { useNavigation } from "@react-navigation/native";
 
-const Button = ({ button, ...props }) => {
+const Button = ({ button, full, ...props }) => {
   const navigation = useNavigation();
 
   return (
     <TouchableOpacity
-      style={{ paddingHorizontal: Spacing.WRAP, width: "100%", ...props.style }}
+      style={{
+        paddingHorizontal: full ? 0 : Spacing.WRAP,
+        width: "100%",
+        ...props.style
+      }}
       onPress={async () => {
         await button.onPress();
         if (button.navigate) {

@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Welcome, SignIn, SignUp } from "screens";
+import { Welcome, SignIn, SignUp, ResetPassword } from "screens";
 
 const Stack = createStackNavigator();
 
@@ -10,6 +10,7 @@ export default function AuthorizationNavigation() {
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="SignIn" component={SignIn} />
       <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen name="ResetPassword" component={ResetPassword} />
     </Stack.Navigator>
   );
 }

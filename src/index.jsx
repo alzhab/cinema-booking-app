@@ -22,7 +22,7 @@ export class Main extends Component {
   async componentDidMount() {
     await Font.loadAsync({
       Muli: require("assets/fonts/Muli/static/Muli-Regular.ttf"),
-      Muli_Bold: require("assets/fonts/Muli/static/Muli-Bold.ttf"),
+      Muli_Bold: require("./assets/fonts/Muli/static/Muli-ExtraBold.ttf"),
       Bungee: require("assets/fonts/Bungee_Inline/BungeeInline-Regular.ttf"),
       ...Ionicons.font
     });

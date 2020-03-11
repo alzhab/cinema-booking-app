@@ -5,13 +5,8 @@ import { Container } from "atoms";
 const AuthHOC = Component => {
   return props => {
     return (
-      <Container
-        style={{
-          alignItems: "center",
-          justifyContent: "flex-start"
-        }}
-      >
-        <Logo style={{ padding: 25 }} />
+      <Container style={{ paddingTop: 25 }}>
+        <Logo />
         <Component {...props} />
       </Container>
     );

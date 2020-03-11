@@ -1,3 +1,3 @@
 import { scaleSize } from "./mixins";
 
-export const WRAP = scaleSize(25);
+export const WRAP = scaleSize(20);

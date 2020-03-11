@@ -11,6 +11,7 @@ const MyText = ({
   lineHeight = 1,
   textTransform = "none",
   children,
+  full,
   ...props
 }) => {
   switch (color) {
@@ -22,6 +23,9 @@ const MyText = ({
       break;
     case "active":
       color = Colors.ACTIVE;
+      break;
+    case "second_active":
+      color = Colors.SECOND_ACTIVE;
       break;
   }
 
@@ -46,6 +50,7 @@ const MyText = ({
         textAlign: align,
         lineHeight: size * lineHeight,
         textTransform,
+        width: full ? "100%" : null,
         ...props.style
       }}
     >
