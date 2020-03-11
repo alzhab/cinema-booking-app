@@ -3,8 +3,8 @@ import { Image } from "react-native";
 import { Flex, Text } from "atoms";
 import { Mixins, Spacing } from "styles";
 
-const Logo = () => (
-  <Flex layout="center center">
+const Logo = props => (
+  <Flex layout="center center" {...props}>
     <Image
       source={require("assets/images/logo.png")}
       style={{

@@ -1,12 +1,9 @@
 import React from "react";
-import { Container, Button, Text } from "native-base";
+import { Text } from "atoms";
+import AuthHOC from "../AuthHOC";
 
 const SignIn = () => {
-  return (
-    <Container style={{ alignItems: "center", justifyContent: "center" }}>
-      <Text>SignIn</Text>
-    </Container>
-  );
+  return <Text>SignIn</Text>;
 };
 
-export default SignIn;
+export default AuthHOC(SignIn);
