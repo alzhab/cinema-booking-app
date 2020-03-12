@@ -37,7 +37,8 @@ const SliderIndicator = ({ isActive }) => {
         borderRadius: 18,
         borderWidth: 2,
         borderColor: "#f8aa25",
-        marginHorizontal: 13
+        marginHorizontal: 13,
+        marginBottom: 15
       }}
     >
       {isActive && (

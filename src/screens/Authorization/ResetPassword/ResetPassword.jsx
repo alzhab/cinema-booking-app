@@ -8,6 +8,11 @@ import { Form } from "native-base";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
+const HEADING = {
+  main: "Reset Your Password",
+  second: "Forgot?"
+};
+
 const Inputs = () => {
   return (
     <>
@@ -37,9 +42,7 @@ const SignInLink = () => {
 
 const ResetPassword = () => {
   return (
-    <Container style={{ width: "100%", paddingHorizontal: Spacing.WRAP }}>
-      <AuthHeading main="Reset Your Password" second="Forgot?" />
-
+    <>
       <Form
         style={{
           backgroundColor: Colors.SECOND_BG,
@@ -56,8 +59,8 @@ const ResetPassword = () => {
       </Form>
 
       <SignInLink />
-    </Container>
+    </>
   );
 };
 
-export default AuthHOC(ResetPassword);
+export default AuthHOC(ResetPassword, HEADING);

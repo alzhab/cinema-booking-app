@@ -1,17 +1,14 @@
-import SignInActions from "./actions";
 import { AuthApi } from "api";
+import { AuthActions } from "../../AuthHOC/duck";
 
 const LoginFetch = userData => {
   return dispatch => {
     AuthApi.setUser(userData);
-    dispatch(SignInActions.LoginStart());
+    dispatch(AuthActions.AuthFetchStart());
 
     setTimeout(() => {
-      AuthApi.getUser().then(res => {
-        console.log(res);
-      });
       // dispatch(SignInActions.LoginSuccess(userData));
-      dispatch(SignInActions.LoginError("User Not Found"));
+      dispatch(AuthActions.AuthFetchError("USER NOT FOUND"));
     }, 3000);
   };
 };

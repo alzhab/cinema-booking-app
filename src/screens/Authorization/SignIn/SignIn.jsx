@@ -3,10 +3,15 @@ import { Form } from "native-base";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { Text, Container } from "atoms";
-import { AuthHeading, Button, Input, Loading, AlertMessage } from "molecules";
+import { Text, Flex } from "atoms";
+import { AuthHeading, Button, Input, Loading } from "molecules";
 import { Colors, Mixins, Spacing } from "styles";
 import AuthHOC from "../AuthHOC";
+
+const HEADING = {
+  main: "Create your Account",
+  second: "Welcome Back!"
+};
 
 const Inputs = () => {
   return (
@@ -71,51 +76,39 @@ const SocialLogin = () => {
   );
 };
 
-const SignIn = ({ loginFetchLoading, loginFetch, error }) => {
+const SignIn = ({ loginFetch }) => {
   return (
     <>
-      {loginFetchLoading && <Loading />}
+      <Form
+        style={{
+          backgroundColor: Colors.SECOND_BG,
+          borderRadius: 20,
+          marginTop: 20,
+          marginBottom: Mixins.WINDOW_HEIGHT * 0.05,
+          padding: Spacing.WRAP
+        }}
+        justifyContent="center"
+      >
+        <Inputs />
 
-      <AlertMessage
-        message={error}
-        color={Colors.MAIN_TEXT}
-        bgColor={Colors.ACTIVE}
-      />
+        <ForgotPasswordLink />
 
-      <Container style={{ width: "100%", paddingHorizontal: Spacing.WRAP }}>
-        <AuthHeading main="Create your Account" second="Welcome Back!" />
-
-        <Form
-          style={{
-            backgroundColor: Colors.SECOND_BG,
-            borderRadius: 20,
-            marginTop: 20,
-            marginBottom: Mixins.WINDOW_HEIGHT * 0.05,
-            padding: Spacing.WRAP
+        <Button
+          button={{
+            title: "Login",
+            onPress: () => {
+              loginFetch({ username: "user" });
+            }
           }}
-          justifyContent="center"
-        >
-          <Inputs />
+          full
+        />
 
-          <ForgotPasswordLink />
+        <SocialLogin />
+      </Form>
 
-          <Button
-            button={{
-              title: "Login",
-              onPress: () => {
-                loginFetch({ username: "user" });
-              }
-            }}
-            full
-          />
-
-          <SocialLogin />
-        </Form>
-
-        <SignUpLink />
-      </Container>
+      <SignUpLink />
     </>
   );
 };
 
-export default AuthHOC(SignIn);
+export default AuthHOC(SignIn, HEADING);

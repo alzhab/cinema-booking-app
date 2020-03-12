@@ -1,0 +1,11 @@
+const AUTH_FETCH_START = "LOGIN_START";
+const AUTH_FETCH_ERROR = "LOGIN_ERROR";
+const AUTH_FETCH_SUCCESS = "LOGIN_SUCCESS";
+
+const types = {
+  AUTH_FETCH_START,
+  AUTH_FETCH_ERROR,
+  AUTH_FETCH_SUCCESS
+};
+
+export default types;

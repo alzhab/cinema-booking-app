@@ -1,11 +1,9 @@
 import { connect } from "react-redux";
 import SignIn from "./SignIn";
-import { SignInOperations } from "./duck";
+import { SignInOperations, SignInActions } from "./duck";
 
 const mapStateToProps = state => {
-  const { loginFetchLoading, error } = state.signIn;
-
-  return { loginFetchLoading, error };
+  return {};
 };
 
 const mapDispatchToProps = dispatch => {

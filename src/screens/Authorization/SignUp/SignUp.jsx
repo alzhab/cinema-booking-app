@@ -3,10 +3,14 @@ import { Text, Flex } from "atoms";
 import { AuthHeading, Button, Input } from "molecules";
 import { Colors, Mixins, Spacing } from "styles";
 import AuthHOC from "../AuthHOC";
-import { Container } from "atoms";
 import { Form } from "native-base";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
+const HEADING = {
+  main: "Create your Account",
+  second: "Hello!"
+};
 
 const Inputs = () => {
   return (
@@ -51,9 +55,7 @@ const SocialLogin = () => {
 
 const SignUp = () => {
   return (
-    <Container style={{ width: "100%", paddingHorizontal: Spacing.WRAP }}>
-      <AuthHeading main="Create your Account" second="Hello!" />
-
+    <>
       <Form
         style={{
           backgroundColor: Colors.SECOND_BG,
@@ -72,8 +74,8 @@ const SignUp = () => {
       </Form>
 
       <SignUpLink />
-    </Container>
+    </>
   );
 };
 
-export default AuthHOC(SignUp);
+export default AuthHOC(SignUp, HEADING);

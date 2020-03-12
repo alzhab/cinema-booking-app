@@ -11,7 +11,7 @@ const Welcome = ({ infoList }) => {
     AsyncStorage.getItem("isFirstRun", (err, result) => {
       if (err) {
       } else {
-        if (result && false) {
+        if (result) {
           navigation.replace("SignIn");
         }
       }
@@ -25,4 +25,4 @@ const Welcome = ({ infoList }) => {
   return <Slider data={infoList} />;
 };
 
-export default AuthHOC(Welcome);
+export default AuthHOC(Welcome, null, true);
