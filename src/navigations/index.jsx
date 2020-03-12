@@ -1,14 +1,6 @@
-/* TODO Authorization Navigation: 
-  Instruction, 
-  SignIn, 
-  SignUp, 
-  Reset Password */
-
 /* TODO Main Navigation (BottomTabBar): 
 
 */
-
-//TODO Настроить тему, шрифты, цвета
 
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";

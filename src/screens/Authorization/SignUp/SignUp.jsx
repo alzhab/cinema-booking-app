@@ -53,7 +53,7 @@ const SocialLogin = () => {
   );
 };
 
-const SignUp = () => {
+const SignUp = ({ signUpFetch }) => {
   return (
     <>
       <Form
@@ -68,7 +68,13 @@ const SignUp = () => {
       >
         <Inputs />
 
-        <Button button={{ title: "Register Now" }} full />
+        <Button
+          button={{
+            title: "Register Now",
+            onPress: () => signUpFetch({ name: "username" })
+          }}
+          full
+        />
 
         <SocialLogin />
       </Form>

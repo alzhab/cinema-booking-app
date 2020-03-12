@@ -8,7 +8,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loginFetch: user => dispatch(SignInOperations.LoginFetch(user))
+    SignInFetch: user => dispatch(SignInOperations.SignInFetch(user))
   };
 };
 

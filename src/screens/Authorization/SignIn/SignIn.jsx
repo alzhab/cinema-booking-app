@@ -1,3 +1,4 @@
+//TODO Сделать формы рекативными
 import React from "react";
 import { Form } from "native-base";
 import { TouchableOpacity } from "react-native";
@@ -76,7 +77,7 @@ const SocialLogin = () => {
   );
 };
 
-const SignIn = ({ loginFetch }) => {
+const SignIn = ({ SignInFetch }) => {
   return (
     <>
       <Form
@@ -97,7 +98,7 @@ const SignIn = ({ loginFetch }) => {
           button={{
             title: "Login",
             onPress: () => {
-              loginFetch({ username: "user" });
+              SignInFetch({ username: "user" });
             }
           }}
           full

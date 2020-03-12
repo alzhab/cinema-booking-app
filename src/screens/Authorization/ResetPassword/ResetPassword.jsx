@@ -1,9 +1,8 @@
 import React from "react";
 import { Text, Flex } from "atoms";
-import { AuthHeading, Button, Input } from "molecules";
+import { Button, Input } from "molecules";
 import { Colors, Mixins, Spacing } from "styles";
 import AuthHOC from "../AuthHOC";
-import { Container } from "atoms";
 import { Form } from "native-base";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -13,12 +12,22 @@ const HEADING = {
   second: "Forgot?"
 };
 
-const Inputs = () => {
+const Inputs = ({ codeChecked, emailChecked }) => {
   return (
+    // Этапы смены пароля
     <>
-      <Input title="Email ID" placeholder="example@gmail.com" type="email" />
-      <Input title="New Password" placeholder="" type="password" />
-      <Input title="Confirm Password" placeholder="" type="password" />
+      {!emailChecked && (
+        <Input title="Email ID" placeholder="example@gmail.com" type="email" />
+      )}
+      {!codeChecked && emailChecked && (
+        <Input title="Code" placeholder="wait for 1 minute" />
+      )}
+      {emailChecked && codeChecked && (
+        <>
+          <Input title="New Password" placeholder="" type="password" />
+          <Input title="Confirm Password" placeholder="" type="password" />
+        </>
+      )}
     </>
   );
 };
@@ -40,7 +49,54 @@ const SignInLink = () => {
   );
 };
 
-const ResetPassword = () => {
+const ResetPassword = ({
+  codeChecked,
+  emailChecked,
+  checkCode,
+  checkEmail,
+  changePassword,
+  resetCheck
+}) => {
+  // Смена текста в зависимости от этапа смены пароля
+  let buttonTitle = "";
+
+  if (!emailChecked) {
+    buttonTitle = "Send Code";
+  }
+
+  if (emailChecked && !codeChecked) {
+    buttonTitle = "Check Code";
+  }
+
+  if (emailChecked && codeChecked) {
+    buttonTitle = "Reset Password";
+  }
+
+  // отправка запроса в зависимости от этапа смены пароля
+  const submit = () => {
+    if (!emailChecked) {
+      checkEmail("email");
+    }
+
+    if (emailChecked && !codeChecked) {
+      checkCode({ code: "code", email: "email" });
+    }
+
+    if (emailChecked && codeChecked) {
+      changePassword({ newPassword: "password", email: "email" });
+    }
+  };
+
+  const navigation = useNavigation();
+
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      resetCheck();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
   return (
     <>
       <Form
@@ -53,9 +109,9 @@ const ResetPassword = () => {
         }}
         justifyContent="center"
       >
-        <Inputs />
+        <Inputs codeChecked={codeChecked} emailChecked={emailChecked} />
 
-        <Button button={{ title: "Reset Password" }} full />
+        <Button button={{ title: buttonTitle, onPress: submit }} full />
       </Form>
 
       <SignInLink />

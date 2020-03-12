@@ -7,10 +7,8 @@ import { Colors, Spacing } from "styles";
 const AuthHOC = (Component, heading, isForm) => {
   return ({ error, loading, setError, ...props }) => {
     const Content = isForm ? (
-      <Container style={{ paddingTop: 25 }}>
-        <ScrollView
-          contentContainerStyle={{ flex: 1, justifyContent: "flex-end" }}
-        >
+      <Container style={{ paddingTop: 25, flex: 1 }}>
+        <ScrollView contentContainerStyle={{ justifyContent: "center" }}>
           <Logo />
           <Component {...props} />
         </ScrollView>
@@ -27,10 +25,8 @@ const AuthHOC = (Component, heading, isForm) => {
           color={Colors.MAIN_TEXT}
           afterAlert={() => setError("")}
         />
-        <Container style={{ paddingTop: 25 }}>
-          <ScrollView
-            contentContainerStyle={{ flex: 1, justifyContent: "flex-end" }}
-          >
+        <Container style={{ paddingTop: 25, flex: 1 }}>
+          <ScrollView contentContainerStyle={{ justifyContent: "center" }}>
             <Logo />
 
             <Flex

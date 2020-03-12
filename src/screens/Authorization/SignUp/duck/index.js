@@ -1,5 +1,4 @@
-import SignUpReducer from './reducers'
+import SignUpReducer from "./reducers";
+import SignUpOperations from "./operations";
 
-export {
-    SignUpReducer
-}
+export { SignUpReducer, SignUpOperations };

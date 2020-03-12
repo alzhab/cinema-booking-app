@@ -1,7 +1,7 @@
 import { AuthApi } from "api";
 import { AuthActions } from "../../AuthHOC/duck";
 
-const LoginFetch = userData => {
+const SignInFetch = userData => {
   return dispatch => {
     AuthApi.setUser(userData);
     dispatch(AuthActions.AuthFetchStart());
@@ -14,7 +14,7 @@ const LoginFetch = userData => {
 };
 
 const SignInOperations = {
-  LoginFetch
+  SignInFetch
 };
 
 export default SignInOperations;
