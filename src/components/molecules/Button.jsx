@@ -16,7 +16,7 @@ const Button = ({ button, full, ...props }) => {
         ...props.style
       }}
       onPress={async () => {
-        await button.onPress();
+        button.onPress();
         if (button.navigate) {
           navigation.navigate(button.navigate, { animate: false });
         }

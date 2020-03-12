@@ -1,12 +1,12 @@
 import React from "react";
-import { Text, Flex } from "atoms";
-import { AuthHeading, Button, Input } from "molecules";
-import { Colors, Mixins, Spacing } from "styles";
-import AuthHOC from "../AuthHOC";
-import { Container } from "atoms";
 import { Form } from "native-base";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
+import { Text, Container } from "atoms";
+import { AuthHeading, Button, Input, Loading, AlertMessage } from "molecules";
+import { Colors, Mixins, Spacing } from "styles";
+import AuthHOC from "../AuthHOC";
 
 const Inputs = () => {
   return (
@@ -48,6 +48,7 @@ const SignUpLink = () => {
       onPress={() => {
         navigation.navigate("SignUp");
       }}
+      style={{ paddingBottom: 25 }}
     >
       <Text align="center" full family="700" color="second" size={15}>
         Don't have an account? <Text color="second_active">Register Now</Text>
@@ -70,32 +71,50 @@ const SocialLogin = () => {
   );
 };
 
-const SignIn = () => {
+const SignIn = ({ loginFetchLoading, loginFetch, error }) => {
   return (
-    <Container style={{ width: "100%", paddingHorizontal: Spacing.WRAP }}>
-      <AuthHeading main="Create your Account" second="Welcome Back!" />
+    <>
+      {loginFetchLoading && <Loading />}
 
-      <Form
-        style={{
-          backgroundColor: Colors.SECOND_BG,
-          borderRadius: 20,
-          marginTop: 20,
-          marginBottom: Mixins.WINDOW_HEIGHT * 0.05,
-          padding: Spacing.WRAP
-        }}
-        justifyContent="center"
-      >
-        <Inputs />
+      <AlertMessage
+        message={error}
+        color={Colors.MAIN_TEXT}
+        bgColor={Colors.ACTIVE}
+      />
 
-        <ForgotPasswordLink />
+      <Container style={{ width: "100%", paddingHorizontal: Spacing.WRAP }}>
+        <AuthHeading main="Create your Account" second="Welcome Back!" />
 
-        <Button button={{ title: "Login" }} full />
+        <Form
+          style={{
+            backgroundColor: Colors.SECOND_BG,
+            borderRadius: 20,
+            marginTop: 20,
+            marginBottom: Mixins.WINDOW_HEIGHT * 0.05,
+            padding: Spacing.WRAP
+          }}
+          justifyContent="center"
+        >
+          <Inputs />
 
-        <SocialLogin />
-      </Form>
+          <ForgotPasswordLink />
 
-      <SignUpLink />
-    </Container>
+          <Button
+            button={{
+              title: "Login",
+              onPress: () => {
+                loginFetch({ username: "user" });
+              }
+            }}
+            full
+          />
+
+          <SocialLogin />
+        </Form>
+
+        <SignUpLink />
+      </Container>
+    </>
   );
 };
 

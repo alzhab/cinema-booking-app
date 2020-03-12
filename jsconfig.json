@@ -31,6 +31,9 @@
       ],
       "nativeBaseTheme": [
         "src/native-base-theme/*"
+      ],
+      "api": [
+        "src/api/*"
       ]
     }
   }

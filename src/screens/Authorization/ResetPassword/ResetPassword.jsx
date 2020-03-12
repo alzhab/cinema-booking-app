@@ -26,6 +26,7 @@ const SignInLink = () => {
       onPress={() => {
         navigation.navigate("SignIn");
       }}
+      style={{ paddingBottom: 25 }}
     >
       <Text align="center" full family="700" color="second" size={15}>
         Already have an account? <Text color="second_active">Login</Text>

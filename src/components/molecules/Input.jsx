@@ -8,8 +8,6 @@ const MyInput = ({ title, placeholder, type, ...props }) => {
   const [value, setValue] = useState("");
 
   const inputCheckHandle = e => {
-    console.log(e);
-
     setValue(e.nativeEvent.text);
     switch (type) {
       case "email":

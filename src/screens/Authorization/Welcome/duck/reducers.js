@@ -15,8 +15,12 @@ const initialState = {
       title: "there always room for a transport people to another world",
       button: {
         title: "Create An Account",
-        onPress: async () => {
-          await AsyncStorage.setItem("isFirstRun", "true");
+        onPress: () => {
+          const setFirstRun = async () => {
+            await AsyncStorage.setItem("isFirstRun", "true");
+          };
+
+          setFirstRun();
         },
         navigate: "SignIn"
       }
