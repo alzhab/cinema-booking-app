@@ -50,7 +50,9 @@ export const emailValidate = text => {
 
 export const checkFormValid = fields => {
   for (var key in fields) {
-    if (fields[key] !== null && fields[key] != "") return false;
+    console.log(fields[key]);
+
+    if (fields[key] === null || fields[key] === "") return false;
   }
   return true;
 };

@@ -67,7 +67,12 @@ const SignUp = ({ signUpFetch, setError }) => {
   ];
 
   const submit = () => {
-    signUpFetch({ name: "username" });
+    signUpFetch({
+      username,
+      email,
+      password,
+      confirmPassword
+    });
   };
 
   return (
