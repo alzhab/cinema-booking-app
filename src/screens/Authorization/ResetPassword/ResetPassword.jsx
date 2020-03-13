@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, Flex } from "atoms";
-import { Button, Input } from "molecules";
+import { Button, Input, InputGroup } from "molecules";
 import { Colors, Mixins, Spacing } from "styles";
 import AuthHOC from "../AuthHOC";
 import { Form } from "native-base";
@@ -57,6 +57,46 @@ const ResetPassword = ({
   changePassword,
   resetCheck
 }) => {
+  const [email, setEmail] = useState("");
+  const [code, setCode] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
+
+  const inputs = [
+    {
+      title: "Email",
+      placeholder: "something@gmail.com",
+      type: "",
+      value: email,
+      setValue: setEmail,
+      hide: emailChecked
+    },
+    {
+      title: "Code",
+      placeholder: "username",
+      type: "",
+      value: code,
+      setValue: setCode,
+      hide: !emailChecked || codeChecked
+    },
+    {
+      title: "New Password",
+      placeholder: "username",
+      type: "",
+      value: newPassword,
+      setValue: setNewPassword,
+      hide: !emailChecked || !codeChecked
+    },
+    {
+      title: "Confirm Password",
+      placeholder: "username",
+      type: "",
+      value: confirmNewPassword,
+      setValue: setConfirmNewPassword,
+      hide: !emailChecked || !codeChecked
+    }
+  ];
+
   // Смена текста в зависимости от этапа смены пароля
   let buttonTitle = "";
 
@@ -109,7 +149,7 @@ const ResetPassword = ({
         }}
         justifyContent="center"
       >
-        <Inputs codeChecked={codeChecked} emailChecked={emailChecked} />
+        <InputGroup data={inputs} />
 
         <Button button={{ title: buttonTitle, onPress: submit }} full />
       </Form>

@@ -1,25 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, Flex } from "atoms";
-import { AuthHeading, Button, Input } from "molecules";
+import { AuthHeading, Button, Input, SocialAuth, InputGroup } from "molecules";
 import { Colors, Mixins, Spacing } from "styles";
 import AuthHOC from "../AuthHOC";
 import { Form } from "native-base";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const HEADING = {
   main: "Create your Account",
   second: "Hello!"
-};
-
-const Inputs = () => {
-  return (
-    <>
-      <Input title="User Name" placeholder="login" />
-      <Input title="Email ID" placeholder="example@gmail.com" type="email" />
-      <Input title="Password" placeholder="" type="password" />
-    </>
-  );
 };
 
 const SignUpLink = () => {
@@ -39,49 +29,76 @@ const SignUpLink = () => {
   );
 };
 
-const SocialLogin = () => {
-  return (
-    <Text
-      full
-      align="center"
-      family="700"
-      style={{ marginVertical: 20 }}
-      size={15}
-    >
-      Or Register using Social Media
-    </Text>
-  );
-};
+const SignUp = ({ signUpFetch, setError }) => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-const SignUp = ({ signUpFetch }) => {
+  const inputs = [
+    {
+      title: "User Name",
+      placeholder: "username",
+      type: "",
+      value: username,
+      setValue: setUsername
+    },
+    {
+      title: "Email",
+      placeholder: "username@mail.ru",
+      type: "email",
+      value: email,
+      setValue: setEmail
+    },
+    {
+      title: "Password",
+      placeholder: "min length 5",
+      type: "password",
+      value: password,
+      setValue: setPassword
+    },
+    {
+      title: "Confirm Password",
+      placeholder: "min length 5",
+      type: "password",
+      value: confirmPassword,
+      setValue: setConfirmPassword
+    }
+  ];
+
+  const submit = () => {
+    signUpFetch({ name: "username" });
+  };
+
   return (
     <>
-      <Form
-        style={{
-          backgroundColor: Colors.SECOND_BG,
-          borderRadius: 20,
-          marginTop: 20,
-          marginBottom: Mixins.WINDOW_HEIGHT * 0.05,
-          padding: Spacing.WRAP
-        }}
-        justifyContent="center"
-      >
-        <Inputs />
+      <Form style={styles.form} justifyContent="center">
+        <InputGroup data={inputs} />
 
         <Button
           button={{
             title: "Register Now",
-            onPress: () => signUpFetch({ name: "username" })
+            onPress: submit
           }}
           full
         />
 
-        <SocialLogin />
+        <SocialAuth target="signUp" />
       </Form>
 
       <SignUpLink />
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  form: {
+    backgroundColor: Colors.SECOND_BG,
+    borderRadius: 20,
+    marginTop: 20,
+    marginBottom: Mixins.WINDOW_HEIGHT * 0.05,
+    padding: Spacing.WRAP
+  }
+});
 
 export default AuthHOC(SignUp, HEADING);

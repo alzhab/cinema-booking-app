@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     setError: err => {
-      dispatch(AuthActions.AuthFetchError(err));
+      dispatch(AuthActions.AuthSetError(err));
     }
   };
 };

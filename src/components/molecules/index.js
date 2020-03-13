@@ -6,7 +6,8 @@ import AuthHeading from "./AuthHeading";
 import Input from "./Input";
 import Loading from "./Loading";
 import AlertMessage from "./AlertMessage";
-
+import SocialAuth from "./SocialAuth";
+import InputGroup from "./InputGroup";
 export {
   Logo,
   SliderIndicators,
@@ -15,5 +16,7 @@ export {
   AuthHeading,
   Input,
   Loading,
-  AlertMessage
+  AlertMessage,
+  SocialAuth,
+  InputGroup
 };

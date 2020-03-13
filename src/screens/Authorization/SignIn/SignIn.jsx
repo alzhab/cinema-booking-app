@@ -1,26 +1,16 @@
-//TODO Сделать формы рекативными
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "native-base";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { Text, Flex } from "atoms";
-import { AuthHeading, Button, Input, Loading } from "molecules";
+import { Text } from "atoms";
+import { Button, SocialAuth, InputGroup } from "molecules";
 import { Colors, Mixins, Spacing } from "styles";
 import AuthHOC from "../AuthHOC";
 
 const HEADING = {
   main: "Create your Account",
   second: "Welcome Back!"
-};
-
-const Inputs = () => {
-  return (
-    <>
-      <Input title="Email ID" placeholder="example@gmail.com" type="email" />
-      <Input title="Password" placeholder="" type="password" />
-    </>
-  );
 };
 
 const ForgotPasswordLink = () => {
@@ -63,21 +53,37 @@ const SignUpLink = () => {
   );
 };
 
-const SocialLogin = () => {
-  return (
-    <Text
-      full
-      align="center"
-      family="700"
-      style={{ marginVertical: 20 }}
-      size={15}
-    >
-      Or Login using Social Media
-    </Text>
-  );
-};
-
 const SignIn = ({ SignInFetch }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigation = useNavigation();
+
+  // Определяем поля формы
+  const inputs = [
+    {
+      title: "Email ID",
+      placeholder: "example@gmail.com",
+      type: "email",
+      value: email,
+      setValue: setEmail
+    },
+    {
+      title: "Password",
+      placeholder: "min length 5",
+      type: "password",
+      value: password,
+      setValue: setPassword
+    }
+  ];
+
+  const submit = () => {
+    SignInFetch({ email, password }).then(() => {
+      //TODO должен перенаправлять на главную страницу
+      navigation.navigate("SignUp");
+    });
+  };
+
   return (
     <>
       <Form
@@ -90,21 +96,19 @@ const SignIn = ({ SignInFetch }) => {
         }}
         justifyContent="center"
       >
-        <Inputs />
+        <InputGroup data={inputs} />
 
         <ForgotPasswordLink />
 
         <Button
           button={{
             title: "Login",
-            onPress: () => {
-              SignInFetch({ username: "user" });
-            }
+            onPress: submit
           }}
           full
         />
 
-        <SocialLogin />
+        <SocialAuth target="signIn" />
       </Form>
 
       <SignUpLink />

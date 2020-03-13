@@ -2,7 +2,7 @@ import { AsyncStorage } from "react-native";
 
 async function setUser(user) {
   try {
-    await AsyncStorage.setItem("user", JSON.stringify(user));
+    return await AsyncStorage.setItem("user", JSON.stringify(user));
   } catch (error) {
     console.log("Something went wrong", error);
   }

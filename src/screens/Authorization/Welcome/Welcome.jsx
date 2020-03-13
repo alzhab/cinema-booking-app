@@ -11,7 +11,7 @@ const Welcome = ({ infoList }) => {
     AsyncStorage.getItem("isFirstRun", (err, result) => {
       if (err) {
       } else {
-        if (result) {
+        if (result && false) {
           navigation.replace("SignIn");
         }
       }

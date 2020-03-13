@@ -47,3 +47,10 @@ export const emailValidate = text => {
   let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return reg.test(text);
 };
+
+export const checkFormValid = fields => {
+  for (var key in fields) {
+    if (fields[key] !== null && fields[key] != "") return false;
+  }
+  return true;
+};

@@ -1,14 +1,21 @@
 import { AuthApi } from "api";
 import { AuthActions } from "../../AuthHOC/duck";
+import { Mixins } from "styles";
 
 const SignUpFetch = userData => {
   return dispatch => {
-    AuthApi.setUser(userData);
+    const formValid = Mixins.checkFormValid(userData);
+
+    if (!formValid) {
+      dispatch(AuthActions.AuthSetError("FIELDS NOT VALID"));
+      return;
+    }
+
     dispatch(AuthActions.AuthFetchStart());
 
     setTimeout(() => {
       // dispatch(SignInActions.LoginSuccess(userData));
-      dispatch(AuthActions.AuthFetchError("CANT CREATE USER"));
+      dispatch(AuthActions.AuthSetError("CAN'T CREATE USER"));
     }, 3000);
   };
 };

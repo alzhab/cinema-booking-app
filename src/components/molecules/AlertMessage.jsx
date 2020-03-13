@@ -7,22 +7,22 @@ const AlertMessage = ({ message, color, afterAlert, bgColor }) => {
 
   // Анимация появления сверху и уход через 3 секунды навверх
   useEffect(() => {
-    Animated.spring(animation, {
-      toValue: message ? 1 : 0,
-      duration: 500,
-      bounciness: 20,
-      easing: Easing.in
-    }).start();
-
-    setTimeout(() => {
+    Animated.sequence([
+      Animated.spring(animation, {
+        toValue: message ? 1 : 0,
+        duration: 1500,
+        bounciness: 20,
+        easing: Easing.in
+      }),
+      Animated.delay(1500),
       Animated.timing(animation, {
         toValue: 0,
         duration: 500,
         easing: Easing.in
-      }).start(() => {
-        afterAlert();
-      });
-    }, 3000);
+      })
+    ]).start(() => {
+      afterAlert();
+    });
   }, [message]);
 
   const animStyles = {

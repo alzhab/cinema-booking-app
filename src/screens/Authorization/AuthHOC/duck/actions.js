@@ -6,7 +6,7 @@ function AuthFetchStart() {
   };
 }
 
-function AuthFetchError(error) {
+function AuthSetError(error) {
   return {
     type: AuthTypes.AUTH_FETCH_ERROR,
     error
@@ -21,7 +21,7 @@ function AuthFetchSuccess() {
 
 const AuthActions = {
   AuthFetchStart,
-  AuthFetchError,
+  AuthSetError,
   AuthFetchSuccess
 };
 

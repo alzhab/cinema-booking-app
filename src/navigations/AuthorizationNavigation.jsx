@@ -1,4 +1,5 @@
-import React from "react";
+//TODO Guard на Auth
+import React, { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Welcome, SignIn, SignUp, ResetPassword } from "screens";
 

@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import SignUp from "./SignUp";
 import { SignUpOperations } from "./duck";
+import { AuthActions } from "../AuthHOC/duck";
 
 const mapStateToProps = state => {
   return {};
