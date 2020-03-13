@@ -78,9 +78,11 @@ const SignIn = ({ SignInFetch }) => {
   ];
 
   const submit = () => {
-    SignInFetch({ email, password }).then(() => {
-      //TODO должен перенаправлять на главную страницу
-      navigation.navigate("SignUp");
+    SignInFetch({ email, password }).then(res => {
+      if (res !== "error") {
+        //TODO должен перенаправлять на главную страницу
+        navigation.navigate("SignUp");
+      }
     });
   };
 
