@@ -7,7 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import AuthorizationNavigation from "./AuthorizationNavigation";
-import MainNavigator from "./MainNavigation";
+import AppNavigator from "./AppNavigation";
 import { connect } from "react-redux";
 import { AsyncStorage } from "react-native";
 import { AuthActions } from "screens/Authorization/AuthHOC/duck";
@@ -15,11 +15,13 @@ import { AuthActions } from "screens/Authorization/AuthHOC/duck";
 const Stack = createStackNavigator();
 
 function Navigator({ user, setUser }) {
+  // Проверка есть ли в AsyncStorage
   useEffect(() => {
     const asyncFunctionData = async () => {
       try {
-        const user = await AsyncStorage.getItem("user");
-        console.log(user);
+        let user = await AsyncStorage.getItem("user");
+        user = JSON.parse(user);
+        // Если user есть, перенаправляем на Main
         if (user) {
           setUser(user);
         }
@@ -32,7 +34,7 @@ function Navigator({ user, setUser }) {
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
         {user ? (
-          <Stack.Screen name="Main" component={MainNavigator} />
+          <Stack.Screen name="Main" component={AppNavigator} />
         ) : (
           <Stack.Screen
             name="Authorization"

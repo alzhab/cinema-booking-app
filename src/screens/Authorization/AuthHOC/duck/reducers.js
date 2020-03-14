@@ -2,6 +2,7 @@ import AuthTypes from "./types";
 
 const initialState = {
   user: null,
+  isFirstRun: false,
   loading: false,
   error: ""
 };
@@ -30,6 +31,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.user
+      };
+    case AuthTypes.AUTH_SET_FIRSTRUN:
+      return {
+        ...state,
+        isFirstRun: action.value
       };
     default:
       return state;

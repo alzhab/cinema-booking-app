@@ -17,9 +17,6 @@ const Button = ({ button, full, ...props }) => {
       }}
       onPress={async () => {
         button.onPress();
-        if (button.navigate) {
-          navigation.navigate(button.navigate, { animate: false });
-        }
       }}
     >
       <LinearGradient

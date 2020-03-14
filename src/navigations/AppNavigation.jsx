@@ -13,7 +13,7 @@ const HomeScreen = () => {
   return <Flex layout="center center" style={{ flex: 1 }}></Flex>;
 };
 
-export default function MainNavigator() {
+export default function AppNavigator() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} />

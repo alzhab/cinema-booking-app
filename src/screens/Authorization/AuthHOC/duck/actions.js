@@ -31,11 +31,24 @@ function AuthSetUser(user) {
   };
 }
 
+function AuthSetFirstRun(value) {
+  // Создаем поле в AsyncStorage если значение setFirstRun == false
+  if (!value) {
+    AsyncStorage.setItem("isNotFirstRun", "true");
+  }
+
+  return {
+    type: AuthTypes.AUTH_SET_FIRSTRUN,
+    value
+  };
+}
+
 const AuthActions = {
   AuthLoadingStart,
   AuthSetError,
   AuthLoadingStop,
-  AuthSetUser
+  AuthSetUser,
+  AuthSetFirstRun
 };
 
 export default AuthActions;
