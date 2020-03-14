@@ -1,7 +1,11 @@
-import Welcome from "./Authorization/Welcome";
-import SignIn from "./Authorization/SignIn";
-import SignUp from "./Authorization/SignUp";
-import AuthHOC from "./Authorization/AuthHOC";
-import ResetPassword from "./Authorization/ResetPassword";
+import {
+  Welcome,
+  SignIn,
+  SignUp,
+  AuthHOC,
+  ResetPassword
+} from "./Authorization";
 
-export { Welcome, SignIn, SignUp, AuthHOC, ResetPassword };
+import { Profile, Movies } from "./App";
+
+export { Welcome, SignIn, SignUp, AuthHOC, ResetPassword, Profile, Movies };

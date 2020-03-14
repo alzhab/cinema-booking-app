@@ -1,4 +1,3 @@
-//TODO Guard на Auth
 import React, { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Welcome, SignIn, SignUp, ResetPassword } from "screens";
@@ -14,13 +13,9 @@ function AuthorizationNavigation({ isFirstRun, setFirstRun }) {
     const asyncFunctionData = async () => {
       try {
         const isNotFirstRun = await AsyncStorage.getItem("isNotFirstRun");
-        // Если isNotFirstRun === true значит его еще не задали
+        // Если isNotFirstRun === null значит его еще не задали
         // что значит это первый запуск
-        console.log(isNotFirstRun === null);
-
         if (isNotFirstRun === null) {
-          console.log("set first run true");
-
           setFirstRun(true);
         }
       } catch {}

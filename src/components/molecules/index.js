@@ -8,6 +8,7 @@ import Loading from "./Loading";
 import AlertMessage from "./AlertMessage";
 import SocialAuth from "./SocialAuth";
 import InputGroup from "./InputGroup";
+import Tab from "./Tab";
 export {
   Logo,
   SliderIndicators,
@@ -18,5 +19,6 @@ export {
   Loading,
   AlertMessage,
   SocialAuth,
-  InputGroup
+  InputGroup,
+  Tab
 };

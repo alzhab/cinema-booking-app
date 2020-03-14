@@ -39,7 +39,7 @@ export class Main extends Component {
         <StyleProvider style={getTheme(commonColor)}>
           <Container>
             <StatusBar
-              translucent={false}
+              translucent
               barStyle="light-content"
               backgroundColor={Colors.MAIN_BG}
             />
