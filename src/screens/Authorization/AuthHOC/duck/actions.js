@@ -1,8 +1,9 @@
 import AuthTypes from "./types";
+import { AsyncStorage } from "react-native";
 
-function AuthFetchStart() {
+function AuthLoadingStart() {
   return {
-    type: AuthTypes.AUTH_FETCH_START
+    type: AuthTypes.AUTH_LOADING_START
   };
 }
 
@@ -13,16 +14,28 @@ function AuthSetError(error) {
   };
 }
 
-function AuthFetchSuccess() {
+function AuthLoadingStop() {
   return {
     type: AuthTypes.AUTH_FETCH_SUCCESS
   };
 }
 
+function AuthSetUser(user) {
+  if (user) {
+    AsyncStorage.setItem("user", JSON.stringify(user));
+  }
+
+  return {
+    type: AuthTypes.AUTH_SET_USER,
+    user
+  };
+}
+
 const AuthActions = {
-  AuthFetchStart,
+  AuthLoadingStart,
   AuthSetError,
-  AuthFetchSuccess
+  AuthLoadingStop,
+  AuthSetUser
 };
 
 export default AuthActions;

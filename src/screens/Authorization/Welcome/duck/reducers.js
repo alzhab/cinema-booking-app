@@ -1,5 +1,3 @@
-import { AsyncStorage } from "react-native";
-
 const initialState = {
   infoList: [
     {
@@ -15,13 +13,7 @@ const initialState = {
       title: "there always room for a transport people to another world",
       button: {
         title: "Create An Account",
-        onPress: () => {
-          const setFirstRun = async () => {
-            await AsyncStorage.setItem("isFirstRun", "true");
-          };
-
-          setFirstRun();
-        },
+        onPress: () => {},
         navigate: "SignIn"
       }
     }

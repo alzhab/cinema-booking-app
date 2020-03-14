@@ -1,12 +1,20 @@
 import { AuthActions } from "../../AuthHOC/duck";
 import ResetPasswordActions from "./actions";
+import { Mixins } from "styles";
 
 const CheckCode = ({ code, CheckEmail }) => {
   return dispatch => {
-    dispatch(AuthActions.AuthFetchStart());
+    const formIsValid = Mixins.checkFormValid({ code });
+
+    if (!formIsValid) {
+      dispatch(AuthActions.AuthSetError("Code cant be empty"));
+      return;
+    }
+
+    dispatch(AuthActions.AuthLoadingStart());
 
     setTimeout(() => {
-      dispatch(AuthActions.AuthFetchSuccess());
+      dispatch(AuthActions.AuthLoadingStop());
       dispatch(ResetPasswordActions.setCodeChecked(true));
     }, 3000);
   };
@@ -14,18 +22,35 @@ const CheckCode = ({ code, CheckEmail }) => {
 
 const CheckEmail = email => {
   return dispatch => {
-    dispatch(AuthActions.AuthFetchStart());
+    const emailValid = Mixins.checkEmailValid(email);
+
+    if (!emailValid) {
+      dispatch(AuthActions.AuthSetError("EMAIL NOT VALID"));
+      return;
+    }
+
+    dispatch(AuthActions.AuthLoadingStart());
 
     setTimeout(() => {
-      dispatch(AuthActions.AuthFetchSuccess());
+      dispatch(AuthActions.AuthLoadingStop());
       dispatch(ResetPasswordActions.setEmailChecked(true));
     }, 3000);
   };
 };
 
-const ChangePasswordFetch = ({ email, newPassword }) => {
+const ChangePasswordFetch = ({ email, password, confirmPassword }) => {
   return dispatch => {
-    dispatch(AuthActions.AuthFetchStart());
+    const confirmPasswordValid = Mixins.checkConfirmPasswordValid({
+      password,
+      confirmPassword
+    });
+
+    if (!confirmPasswordValid) {
+      dispatch(AuthActions.AuthSetError("PASSWORD NOT EQUAL"));
+      return;
+    }
+
+    dispatch(AuthActions.AuthLoadingStart());
 
     setTimeout(() => {
       // dispatch(SignInActions.LoginSuccess(userData));

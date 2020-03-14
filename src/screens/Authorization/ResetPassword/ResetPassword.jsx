@@ -73,7 +73,7 @@ const ResetPassword = ({
     },
     {
       title: "Code",
-      placeholder: "username",
+      placeholder: "wait max 5 minutes",
       type: "",
       value: code,
       setValue: setCode,
@@ -81,16 +81,16 @@ const ResetPassword = ({
     },
     {
       title: "New Password",
-      placeholder: "username",
-      type: "",
+      placeholder: "min length 5",
+      type: "password",
       value: newPassword,
       setValue: setNewPassword,
       hide: !emailChecked || !codeChecked
     },
     {
       title: "Confirm Password",
-      placeholder: "username",
-      type: "",
+      placeholder: "must be same",
+      type: "password",
       value: confirmNewPassword,
       setValue: setConfirmNewPassword,
       hide: !emailChecked || !codeChecked
@@ -115,15 +115,19 @@ const ResetPassword = ({
   // отправка запроса в зависимости от этапа смены пароля
   const submit = () => {
     if (!emailChecked) {
-      checkEmail("email");
+      checkEmail(email);
     }
 
     if (emailChecked && !codeChecked) {
-      checkCode({ code: "code", email: "email" });
+      checkCode({ code, email });
     }
 
     if (emailChecked && codeChecked) {
-      changePassword({ newPassword: "password", email: "email" });
+      changePassword({
+        password: newPassword,
+        email,
+        confirmPassword: confirmNewPassword
+      });
     }
   };
 

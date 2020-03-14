@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Item, Label, Input } from "native-base";
+import { Item, Label, Input, Icon } from "native-base";
 import { Colors, Typography } from "styles";
 import { Mixins } from "styles";
 
@@ -17,7 +17,7 @@ const MyInput = ({
   const inputCheckHandle = e => {
     switch (type) {
       case "email":
-        const valid = Mixins.emailValidate(value);
+        const valid = Mixins.checkEmailValid(value);
         setError(!valid);
     }
   };
@@ -48,6 +48,7 @@ const MyInput = ({
         onBlur={inputCheckHandle}
         onChangeText={inputChangeHandle}
         value={value}
+        autoCapitalize="none"
         ref={el}
         onChange={e => setValue(e.value)}
         style={{

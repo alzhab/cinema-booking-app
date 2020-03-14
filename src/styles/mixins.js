@@ -43,16 +43,22 @@ export function boxShadow(
   };
 }
 
-export const emailValidate = text => {
+export const checkEmailValid = text => {
   let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return reg.test(text);
 };
 
 export const checkFormValid = fields => {
   for (var key in fields) {
-    console.log(fields[key]);
-
     if (fields[key] === null || fields[key] === "") return false;
   }
+  return true;
+};
+
+export const checkConfirmPasswordValid = ({ password, confirmPassword }) => {
+  if (password !== confirmPassword) {
+    return false;
+  }
+
   return true;
 };
