@@ -1,6 +1,7 @@
 import { AuthApi } from "api";
-import { AuthActions } from "../../AuthHOC/duck";
+import { AuthActions } from "screens/Authorization/AuthHOC/duck";
 import { Mixins } from "styles";
+import { AppActions } from "screens/App/AppHOC/duck";
 
 const SignInFetch = userData => {
   return dispatch => {
@@ -26,7 +27,7 @@ const SignInFetch = userData => {
     const promise = new Promise(function(resolve, reject) {
       setTimeout(function() {
         dispatch(AuthActions.AuthLoadingStop());
-        dispatch(AuthActions.AuthSetUser(userData));
+        dispatch(AppActions.AppSetUser(userData));
         resolve("done");
       }, 3000);
     });

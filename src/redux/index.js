@@ -5,13 +5,15 @@ import { SignInReducer } from "screens/Authorization/SignIn/duck";
 import { SignUpReducer } from "screens/Authorization/SignUp/duck";
 import { ResetPasswordReducer } from "screens/Authorization/ResetPassword/duck";
 import { AuthReducer } from "../screens/Authorization/AuthHOC/duck";
+import { AppReducer } from "../screens/App/AppHOC/duck";
 
 const rootReducer = combineReducers({
   welcome: WelcomeReducer,
   signIn: SignInReducer,
   signUp: SignUpReducer,
   resetPassword: ResetPasswordReducer,
-  authReducer: AuthReducer
+  authReducer: AuthReducer,
+  appReducer: AppReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

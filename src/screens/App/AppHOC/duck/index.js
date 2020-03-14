@@ -1,6 +1,6 @@
-import ProfileReducer from "./reducers";
-import ProfileTypes from "./types";
-import ProfileOperations from "./operations";
-import ProfileActions from "./actions";
+import AppReducer from "./reducers";
+import AppTypes from "./types";
+import AppOperations from "./operations";
+import AppActions from "./actions";
 
-export { ProfileReducer, ProfileTypes, ProfileOperations, ProfileActions };
+export { AppReducer, AppTypes, AppOperations, AppActions };

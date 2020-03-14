@@ -1,7 +1,3 @@
-/* TODO Main Navigation (BottomTabBar): 
-
-*/
-
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -10,7 +6,7 @@ import AuthorizationNavigation from "./AuthorizationNavigation";
 import AppNavigator from "./AppNavigation";
 import { connect } from "react-redux";
 import { AsyncStorage } from "react-native";
-import { AuthActions } from "screens/Authorization/AuthHOC/duck";
+import { AppActions } from "screens/App/AppHOC/duck";
 
 const Stack = createStackNavigator();
 
@@ -47,7 +43,7 @@ function Navigator({ user, setUser }) {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { user } = state.authReducer;
+  const { user } = state.appReducer;
 
   return {
     user
@@ -56,7 +52,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    setUser: user => dispatch(AuthActions.AuthSetUser(user))
+    setUser: user => dispatch(AppActions.AppSetUser(user))
   };
 };
 
