@@ -10,4 +10,4 @@ const Favorites = () => {
   );
 };
 
-export default AppHOC(Favorites);
+export default AppHOC(Favorites, "Favorites");

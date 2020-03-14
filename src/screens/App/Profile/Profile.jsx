@@ -10,4 +10,4 @@ const Profile = () => {
   );
 };
 
-export default AppHOC(Profile);
+export default AppHOC(Profile, "Profile");

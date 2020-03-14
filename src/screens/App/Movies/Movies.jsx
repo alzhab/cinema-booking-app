@@ -10,4 +10,4 @@ const Movies = () => {
   );
 };
 
-export default AppHOC(Movies);
+export default AppHOC(Movies, "Movies");

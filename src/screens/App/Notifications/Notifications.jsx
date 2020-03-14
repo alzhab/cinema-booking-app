@@ -10,4 +10,4 @@ const Notifications = () => {
   );
 };
 
-export default AppHOC(Notifications);
+export default AppHOC(Notifications, "Notifications");
