@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
-  TouchableOpacity,
-  View,
+  TouchableWithoutFeedback,
   Animated,
   Easing,
   Platform
@@ -41,7 +40,7 @@ const Tab = ({ onPress, onLongPress, isFocused, icon }) => {
   });
 
   return (
-    <TouchableOpacity
+    <TouchableWithoutFeedback
       accessibilityRole="button"
       accessibilityStates={isFocused ? ["selected"] : []}
       onPress={onPress}
@@ -98,7 +97,7 @@ const Tab = ({ onPress, onLongPress, isFocused, icon }) => {
           }}
         />
       </Animated.View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 };
 

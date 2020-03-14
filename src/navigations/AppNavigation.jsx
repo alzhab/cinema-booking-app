@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { Profile, Movies } from "screens";
+import { Profile, Movies, Notifications, Favorites, Theatres } from "screens";
 import { Spacing, Mixins, Colors } from "styles";
 import { Flex } from "atoms";
 import { Tab } from "molecules";
@@ -74,21 +74,21 @@ export default function AppNavigator() {
       />
       <BottomTab.Screen
         name="Notifications"
-        component={Profile}
+        component={Notifications}
         options={{
           icon: "notifications-active"
         }}
       />
       <BottomTab.Screen
         name="Favorite"
-        component={Profile}
+        component={Favorites}
         options={{
           icon: "star"
         }}
       />
       <BottomTab.Screen
         name="Theatres"
-        component={Profile}
+        component={Theatres}
         options={{
           icon: "theaters"
         }}
