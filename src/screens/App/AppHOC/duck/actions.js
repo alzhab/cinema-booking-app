@@ -12,12 +12,18 @@ function AppSetUser(user) {
   };
 }
 
-function AppSetLoading(value, screen) {
+function AppAddLoading(screen) {
   return {
-    type: AppTypes.APP_SET_LOADING,
-    screen: screen,
-    value: value
+    type: AppTypes.APP_ADDLOADING,
+    screen: screen
   };
 }
 
-export default { AppSetUser, AppSetLoading };
+function AppDeleteLoading(screen) {
+  return {
+    type: AppTypes.APP_DELETE_LOADING,
+    screen: screen
+  };
+}
+
+export default { AppSetUser, AppAddLoading, AppDeleteLoading };

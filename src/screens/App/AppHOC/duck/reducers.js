@@ -1,8 +1,7 @@
 import AppTypes from "./types";
 
 const initialState = {
-  loading: true,
-  loadingScreen: "Profile",
+  loadingScreens: ["Profile"],
   user: null
 };
 
@@ -13,11 +12,17 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: action.user
       };
-    case AppTypes.APP_SET_LOADING:
+    case AppTypes.APP_ADD_LOADING:
       return {
         ...state,
-        loadingScreen: action.screen,
-        loading: action.value
+        loadingScreens: state.loadingScreens.push(action.screen)
+      };
+    case AppTypes.APP_DELETE_LOADING:
+      return {
+        ...state,
+        loadingScreens: state.loadingScreens.filter(
+          screen => screen !== action.screen
+        )
       };
     default:
       return state;

@@ -7,12 +7,10 @@ import { TabBar } from "organisms";
 
 const BottomTab = createBottomTabNavigator();
 
-function AppNavigator({ loading, loadingScreen }) {
+function AppNavigator({ loadingScreens }) {
   return (
     <BottomTab.Navigator
-      tabBar={props => (
-        <TabBar {...props} loading={loading} loadingScreen={loadingScreen} />
-      )}
+      tabBar={props => <TabBar {...props} loadingScreens={loadingScreens} />}
     >
       <BottomTab.Screen
         name="Movies"
@@ -57,9 +55,9 @@ function AppNavigator({ loading, loadingScreen }) {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { loading, loadingScreen } = state.appReducer;
+  const { loadingScreens } = state.appReducer;
 
-  return { loading, loadingScreen };
+  return { loadingScreens };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

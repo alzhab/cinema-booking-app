@@ -1,4 +1,3 @@
-//TODO AUTH HOC LOADING COMPONENT
 //TODO AUTH HOC SEARCH COMPONENT
 import React from "react";
 import { Container } from "atoms";
@@ -11,10 +10,10 @@ const AppHOC = (
   screenName = headerTitle,
   HeaderRight = null
 ) => {
-  return ({ loading, loadingScreen, ...props }) => {
+  return ({ loadingScreens, ...props }) => {
     return (
       <>
-        {loading && screenName === loadingScreen && <Loading />}
+        {loadingScreens.includes(screenName) && <Loading />}
         <Container style={{ flex: 1 }}>
           <ScrollView>
             <AppHeader headerTitle={headerTitle} HeaderRight={HeaderRight} />

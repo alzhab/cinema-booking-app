@@ -3,7 +3,7 @@ import { Flex } from "atoms";
 import { Tab } from "molecules";
 import { Spacing, Colors, Mixins } from "styles";
 
-function TabBar({ state, descriptors, navigation, loading, loadingScreen }) {
+function TabBar({ state, descriptors, navigation, loadingScreens }) {
   return (
     <Flex
       style={{
@@ -47,7 +47,7 @@ function TabBar({ state, descriptors, navigation, loading, loadingScreen }) {
 
         return (
           <Tab
-            loading={loading && loadingScreen === route.name}
+            loading={loadingScreens.includes(route.name)}
             key={index}
             onLongPress={onLongPress}
             onPress={onPress}
