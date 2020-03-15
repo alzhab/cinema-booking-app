@@ -30,10 +30,19 @@ function Navigator({ user, setUser }) {
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
         {user ? (
-          <Stack.Screen name="Main" component={AppNavigator} />
+          <Stack.Screen
+            name="Main"
+            component={AppNavigator}
+            options={{
+              animationEnabled: false
+            }}
+          />
         ) : (
           <Stack.Screen
             name="Authorization"
+            options={{
+              animationEnabled: false
+            }}
             component={AuthorizationNavigation}
           />
         )}

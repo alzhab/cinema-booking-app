@@ -1,7 +1,7 @@
 import AppTypes from "./types";
 
 const initialState = {
-  loadingScreens: ["Profile"],
+  loadingScreens: [],
   user: null
 };
 
