@@ -1,3 +1,3 @@
 import Slider from "./Slider";
-
-export { Slider };
+import TabBar from "./TabBar";
+export { Slider, TabBar };

@@ -8,16 +8,11 @@ import {
 import { Icon } from "native-base";
 import { Colors } from "styles";
 
-const Tab = ({ onPress, onLongPress, isFocused, icon }) => {
-  const [animation] = useState(new Animated.Value(isFocused ? 0 : 1));
+const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 
-  useEffect(() => {
-    Animated.timing(animation, {
-      toValue: isFocused ? 1 : 0,
-      duration: 200,
-      easing: Easing.in
-    }).start();
-  }, [isFocused]);
+const Tab = ({ onPress, onLongPress, isFocused, icon, loading }) => {
+  const [animation] = useState(new Animated.Value(isFocused ? 0 : 1));
+  const [loadingAnimation] = useState(new Animated.Value(0));
 
   const translateYInterpolation = animation.interpolate({
     inputRange: [0, 1],
@@ -38,6 +33,46 @@ const Tab = ({ onPress, onLongPress, isFocused, icon }) => {
     inputRange: [0, 1],
     outputRange: [0, -30]
   });
+
+  const rotateInterpolation = loadingAnimation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0deg", "-360deg"]
+  });
+
+  const startRotateAnimation = () => {
+    if (loading) {
+      Animated.loop(
+        Animated.timing(loadingAnimation, {
+          toValue: 1,
+          duration: 1000,
+          easing: Easing.in
+        }),
+        { iterations: 1000 }
+      ).start();
+    }
+  };
+
+  const startFocusedAnimation = () => {
+    Animated.timing(animation, {
+      toValue: isFocused ? 1 : 0,
+      duration: 200,
+      easing: Easing.in
+    }).start();
+  };
+
+  useEffect(() => {
+    startFocusedAnimation();
+
+    if (isFocused) {
+      loadingAnimation.stopAnimation();
+    } else {
+      startRotateAnimation();
+    }
+  }, [isFocused]);
+
+  useEffect(() => {
+    startRotateAnimation();
+  }, [loading]);
 
   return (
     <TouchableWithoutFeedback
@@ -86,10 +121,17 @@ const Tab = ({ onPress, onLongPress, isFocused, icon }) => {
           }}
         />
 
-        <Icon
+        <AnimatedIcon
           type="MaterialIcons"
-          name={icon}
+          name={loading && !isFocused ? "replay" : icon}
           style={{
+            transform: !isFocused
+              ? [
+                  {
+                    rotate: rotateInterpolation
+                  }
+                ]
+              : [],
             position: "relative",
             zIndex: 3,
             fontSize: 25,

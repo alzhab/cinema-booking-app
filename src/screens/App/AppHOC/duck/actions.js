@@ -12,4 +12,12 @@ function AppSetUser(user) {
   };
 }
 
-export default { AppSetUser };
+function AppSetLoading(value, screen) {
+  return {
+    type: AppTypes.APP_SET_LOADING,
+    screen: screen,
+    value: value
+  };
+}
+
+export default { AppSetUser, AppSetLoading };

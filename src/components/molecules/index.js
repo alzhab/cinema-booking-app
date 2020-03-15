@@ -9,6 +9,7 @@ import AlertMessage from "./AlertMessage";
 import SocialAuth from "./SocialAuth";
 import InputGroup from "./InputGroup";
 import Tab from "./Tab";
+import AppHeader from "./AppHeader";
 export {
   Logo,
   SliderIndicators,
@@ -20,5 +21,6 @@ export {
   AlertMessage,
   SocialAuth,
   InputGroup,
+  AppHeader,
   Tab
 };

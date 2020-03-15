@@ -2,75 +2,26 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Profile, Movies, Notifications, Favorites, Theatres } from "screens";
-import { Spacing, Mixins, Colors } from "styles";
-import { Flex } from "atoms";
-import { Tab } from "molecules";
-
-function MyTabBar({ state, descriptors, navigation }) {
-  return (
-    <Flex
-      style={{
-        position: "absolute",
-        left: Spacing.WRAP,
-        right: Spacing.WRAP,
-        bottom: Mixins.WINDOW_HEIGHT * 0.05,
-        backgroundColor: Colors.SECOND_BG,
-        borderRadius: 15,
-        borderBottomRightRadius: 70,
-        borderBottomLeftRadius: 70,
-        paddingHorizontal: 20
-      }}
-      layout="space-around center"
-      dir="row"
-    >
-      {state.routes.map((route, index) => {
-        const { options } = descriptors[route.key];
-        const icon = options.icon;
-
-        const isFocused = state.index === index;
-
-        const onPress = () => {
-          const event = navigation.emit({
-            type: "tabPress",
-            target: route.key
-          });
-
-          if (!isFocused && !event.defaultPrevented) {
-            navigation.navigate(route.name);
-          }
-        };
-
-        const onLongPress = () => {
-          navigation.emit({
-            type: "tabLongPress",
-            target: route.key
-          });
-        };
-
-        return (
-          <Tab
-            key={index}
-            onLongPress={onLongPress}
-            onPress={onPress}
-            isFocused={isFocused}
-            icon={icon}
-          />
-        );
-      })}
-    </Flex>
-  );
-}
+import { connect } from "react-redux";
+import { TabBar } from "organisms";
 
 const BottomTab = createBottomTabNavigator();
 
-export default function AppNavigator() {
+function AppNavigator({ loading, loadingScreen }) {
   return (
-    <BottomTab.Navigator tabBar={props => <MyTabBar {...props} />}>
+    <BottomTab.Navigator
+      tabBar={props => (
+        <TabBar {...props} loading={loading} loadingScreen={loadingScreen} />
+      )}
+    >
       <BottomTab.Screen
         name="Movies"
         component={Movies}
         options={{
-          icon: "movie-creation"
+          icon: "movie-creation",
+          tabBar: {
+            visible: false
+          }
         }}
       />
       <BottomTab.Screen
@@ -104,3 +55,15 @@ export default function AppNavigator() {
     </BottomTab.Navigator>
   );
 }
+
+const mapStateToProps = (state, ownProps) => {
+  const { loading, loadingScreen } = state.appReducer;
+
+  return { loading, loadingScreen };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppNavigator);

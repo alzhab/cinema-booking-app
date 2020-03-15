@@ -1,39 +1,28 @@
 //TODO AUTH HOC LOADING COMPONENT
-//TODO AUTH HOC HEADER COMPONENT
 //TODO AUTH HOC SEARCH COMPONENT
 import React from "react";
-import { Container, Flex, Text } from "atoms";
+import { Container } from "atoms";
 import { ScrollView } from "react-native";
-import { Spacing, Mixins } from "styles";
+import { AppHeader, Loading } from "molecules";
 
 const AppHOC = (
   Component,
   headerTitle = "screen title",
+  screenName = headerTitle,
   HeaderRight = null
 ) => {
-  return props => {
+  return ({ loading, loadingScreen, ...props }) => {
     return (
-      <Container style={{ flex: 1 }}>
-        <ScrollView>
-          <Flex
-            dir="row"
-            layout="space-between center"
-            style={{
-              paddingHorizontal: Spacing.WRAP,
-              paddingTop: Mixins.WINDOW_HEIGHT * 0.02,
-              marginBottom: Mixins.WINDOW_HEIGHT * 0.03
-            }}
-          >
-            <Text family="700" size={25} textTransform="capitalize">
-              {headerTitle}
-            </Text>
+      <>
+        {loading && screenName === loadingScreen && <Loading />}
+        <Container style={{ flex: 1 }}>
+          <ScrollView>
+            <AppHeader headerTitle={headerTitle} HeaderRight={HeaderRight} />
 
-            {HeaderRight ? <HeaderRight /> : null}
-          </Flex>
-
-          <Component {...props} />
-        </ScrollView>
-      </Container>
+            <Component {...props} />
+          </ScrollView>
+        </Container>
+      </>
     );
   };
 };

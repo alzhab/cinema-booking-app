@@ -3,7 +3,12 @@ import AppHOC from "./AppHOC";
 import { compose } from "redux";
 
 const mapStateToProps = state => {
-  return {};
+  const { loading, loadingScreen } = state.appReducer;
+
+  return {
+    loading,
+    loadingScreen
+  };
 };
 
 const mapDispatchToProps = dispatch => {
