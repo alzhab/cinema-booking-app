@@ -7,8 +7,9 @@ import { AppHeader, Loading } from "molecules";
 const AppHOC = (
   Component,
   headerTitle = "screen title",
-  screenName = headerTitle,
-  HeaderRight = null
+  back = false,
+  HeaderRight = null,
+  screenName = headerTitle
 ) => {
   return ({ loadingScreens, ...props }) => {
     return (
@@ -16,7 +17,11 @@ const AppHOC = (
         {loadingScreens.includes(screenName) && <Loading />}
         <Container style={{ flex: 1 }}>
           <ScrollView>
-            <AppHeader headerTitle={headerTitle} HeaderRight={HeaderRight} />
+            <AppHeader
+              headerTitle={headerTitle}
+              HeaderRight={HeaderRight}
+              back={back}
+            />
 
             <Component {...props} />
           </ScrollView>

@@ -2,6 +2,7 @@ import AppTypes from "./types";
 
 const initialState = {
   loadingScreens: [],
+  showNotifications: false,
   user: null
 };
 
@@ -23,6 +24,11 @@ const reducer = (state = initialState, action) => {
         loadingScreens: state.loadingScreens.filter(
           screen => screen !== action.screen
         )
+      };
+    case AppTypes.APP_SET_NOTIFICATIONS:
+      return {
+        ...state,
+        showNotifications: action.value
       };
     default:
       return state;

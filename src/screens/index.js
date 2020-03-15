@@ -6,7 +6,16 @@ import {
   ResetPassword
 } from "./Authorization";
 
-import { Profile, Movies, Notifications, Favorites, Theatres } from "./App";
+import {
+  Profile,
+  Edit,
+  Language,
+  Country,
+  Movies,
+  Notifications,
+  Favorites,
+  Theatres
+} from "./App";
 
 export {
   Welcome,
@@ -15,8 +24,11 @@ export {
   AuthHOC,
   ResetPassword,
   Profile,
+  Edit,
+  Language,
   Movies,
   Notifications,
   Favorites,
-  Theatres
+  Theatres,
+  Country
 };

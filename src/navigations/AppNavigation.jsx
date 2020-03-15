@@ -1,9 +1,9 @@
-// TODO Profile Stack Navigator: Profile, Edit, Language, Location, Country
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { Profile, Movies, Notifications, Favorites, Theatres } from "screens";
+import { Movies, Notifications, Favorites, Theatres } from "screens";
 import { connect } from "react-redux";
 import { TabBar } from "organisms";
+import ProfileNavigation from "./ProfileNavigation";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -45,7 +45,7 @@ function AppNavigator({ loadingScreens }) {
       />
       <BottomTab.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileNavigation}
         options={{
           icon: "person"
         }}
