@@ -53,6 +53,7 @@ const MyText = ({
         width: full ? "100%" : null,
         ...props.style
       }}
+      numberOfLines={props.maxLines}
     >
       {children}
     </Text>

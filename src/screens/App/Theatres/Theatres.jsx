@@ -10,4 +10,4 @@ const Theatres = () => {
   );
 };
 
-export default AppHOC(Theatres, "Theatres");
+export default AppHOC(Theatres, { headerTitle: "Theatres" });

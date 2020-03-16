@@ -79,4 +79,4 @@ const Country = ({ activeCountry, countriesList }) => {
   );
 };
 
-export default AppHOC(Country, "Country", true);
+export default AppHOC(Country, { headerTitle: "Country", back: true });

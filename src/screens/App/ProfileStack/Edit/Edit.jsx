@@ -72,4 +72,4 @@ const Edit = () => {
   );
 };
 
-export default AppHOC(Edit, "Edit", true);
+export default AppHOC(Edit, { headerTitle: "Edit", back: true });

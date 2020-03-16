@@ -8,6 +8,7 @@ import { AuthReducer } from "../screens/Authorization/AuthHOC/duck";
 import { AppReducer } from "../screens/App/AppHOC/duck";
 import { LanguageReducer } from "../screens/App/ProfileStack/Language/duck";
 import { CountryReducer } from "../screens/App/ProfileStack/Country/duck";
+import { MoviesReducer } from "../screens/App/MoviesStack/Movies/duck";
 
 const rootReducer = combineReducers({
   welcome: WelcomeReducer,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   authReducer: AuthReducer,
   appReducer: AppReducer,
   langReducer: LanguageReducer,
-  countryReducer: CountryReducer
+  countryReducer: CountryReducer,
+  moviesReducer: MoviesReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

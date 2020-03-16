@@ -6,7 +6,7 @@ import { TouchableOpacity } from "react-native";
 import { Colors } from "styles";
 import { useNavigation } from "@react-navigation/native";
 
-const AppHeader = ({ headerTitle, HeaderRight, back }) => {
+const AppHeader = ({ headerTitle, HeaderRight, back, ...props }) => {
   const navigation = useNavigation();
 
   return (
@@ -16,7 +16,8 @@ const AppHeader = ({ headerTitle, HeaderRight, back }) => {
       style={{
         paddingHorizontal: Spacing.WRAP,
         paddingTop: Mixins.WINDOW_HEIGHT * 0.02,
-        marginBottom: Mixins.WINDOW_HEIGHT * 0.05
+        marginBottom: Mixins.WINDOW_HEIGHT * 0.05,
+        ...props.style
       }}
     >
       <Flex dir="row" layout="center center">

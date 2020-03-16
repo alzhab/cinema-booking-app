@@ -1,3 +1,4 @@
 import Slider from "./Slider";
 import TabBar from "./TabBar";
-export { Slider, TabBar };
+import SearchButton from "./SearchButton";
+export { Slider, TabBar, SearchButton };

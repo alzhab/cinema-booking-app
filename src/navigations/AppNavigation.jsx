@@ -1,9 +1,13 @@
+//TODO Ticket Booking Navigator
+//TODO Сменить AppNavigation на StackNavigator {TabBar && TicketScreen}
+
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Movies, Notifications, Favorites, Theatres } from "screens";
 import { connect } from "react-redux";
 import { TabBar } from "organisms";
 import ProfileNavigation from "./ProfileNavigation";
+import MoviesNavigation from "./MoviesNavigation";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -14,7 +18,7 @@ function AppNavigator({ loadingScreens }) {
     >
       <BottomTab.Screen
         name="Movies"
-        component={Movies}
+        component={MoviesNavigation}
         options={{
           icon: "movie-creation",
           tabBar: {

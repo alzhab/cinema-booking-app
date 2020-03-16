@@ -77,4 +77,4 @@ const Language = ({ activeLanguage, languagesList }) => {
   );
 };
 
-export default AppHOC(Language, "Language", true);
+export default AppHOC(Language, { headerTitle: "Language", back: true });

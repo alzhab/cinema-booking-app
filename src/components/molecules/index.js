@@ -10,6 +10,9 @@ import SocialAuth from "./SocialAuth";
 import InputGroup from "./InputGroup";
 import Tab from "./Tab";
 import AppHeader from "./AppHeader";
+import CardSlider from "./CardSlider";
+import SectionHeading from "./SectionHeading";
+import ThrailerCard from "./ThrailerCard";
 export {
   Logo,
   SliderIndicators,
@@ -22,5 +25,8 @@ export {
   SocialAuth,
   InputGroup,
   AppHeader,
-  Tab
+  Tab,
+  CardSlider,
+  SectionHeading,
+  ThrailerCard
 };

@@ -177,4 +177,7 @@ const Profile = ({ showNotifications, setNotifications, logout }) => {
   );
 };
 
-export default AppHOC(Profile, "Profile", false, EditButton);
+export default AppHOC(Profile, {
+  headerTitle: "Profile",
+  HeaderRight: EditButton
+});

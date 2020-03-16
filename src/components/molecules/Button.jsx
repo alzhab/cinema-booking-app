@@ -5,9 +5,7 @@ import { Text, Flex } from "atoms";
 import { Spacing } from "styles";
 import { useNavigation } from "@react-navigation/native";
 
-const Button = ({ button, full, ...props }) => {
-  const navigation = useNavigation();
-
+const Button = ({ button, gradientStyle, full, children, ...props }) => {
   return (
     <TouchableOpacity
       style={{
@@ -26,18 +24,23 @@ const Button = ({ button, full, ...props }) => {
         style={{
           padding: 15,
           width: "100%",
-          borderRadius: 28
+          borderRadius: 28,
+          ...gradientStyle
         }}
       >
         <Flex layout="center center">
-          <Text
-            align="center"
-            textTransform="capitalize"
-            size={25}
-            family="700"
-          >
-            {button.title}
-          </Text>
+          {button.title ? (
+            <Text
+              align="center"
+              textTransform="capitalize"
+              size={25}
+              family="700"
+            >
+              {button.title}
+            </Text>
+          ) : (
+            children
+          )}
         </Flex>
       </LinearGradient>
     </TouchableOpacity>
