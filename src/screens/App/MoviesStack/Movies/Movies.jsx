@@ -129,6 +129,8 @@ const Slider = ({ moviesList }) => {
 };
 
 const Thrailers = ({ thrailersList }) => {
+  const navigation = useNavigation();
+
   return (
     <>
       <SectionHeading title="thrailers" />
@@ -143,7 +145,13 @@ const Thrailers = ({ thrailersList }) => {
         )}
         showsHorizontalScrollIndicator={false}
         style={{ paddingHorizontal: Spacing.WRAP }}
-        renderItem={({ item, index }) => <ThrailerCard />}
+        renderItem={({ item, index }) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate("MovieThrailer")}
+          >
+            <ThrailerCard />
+          </TouchableOpacity>
+        )}
       />
     </>
   );
