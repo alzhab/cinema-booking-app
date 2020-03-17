@@ -45,6 +45,7 @@ const AppHOC = (Component, options) => {
           )}
 
           <ScrollView
+            nestedScrollEnabled
             style={{
               position: "relative",
               zIndex: 2,

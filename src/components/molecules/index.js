@@ -13,6 +13,8 @@ import AppHeader from "./AppHeader";
 import CardSlider from "./CardSlider";
 import SectionHeading from "./SectionHeading";
 import ThrailerCard from "./ThrailerCard";
+import MovieCard from "./MovieCard";
+
 export {
   Logo,
   SliderIndicators,
@@ -28,5 +30,6 @@ export {
   Tab,
   CardSlider,
   SectionHeading,
-  ThrailerCard
+  ThrailerCard,
+  MovieCard
 };

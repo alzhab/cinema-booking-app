@@ -18,11 +18,17 @@ const CardSlider = ({ data, isActive }) => {
 
   const heightInterpolation = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [Mixins.WINDOW_HEIGHT * 0.35, Mixins.WINDOW_HEIGHT * 0.45]
+    outputRange: ["60%", "75%"]
   });
 
   return (
-    <Flex style={{ width: Mixins.WINDOW_WIDTH * 0.65 }}>
+    <Flex
+      style={{
+        width: Mixins.WINDOW_WIDTH * 0.65,
+        height: "100%",
+        marginBottom: 15
+      }}
+    >
       <Animated.View
         style={{
           borderRadius: 30,

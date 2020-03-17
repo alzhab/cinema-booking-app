@@ -1,4 +1,3 @@
-//TODO Сделаьт карточку кино (в колонну и в ряд)
 import React, { useState, useRef, useEffect } from "react";
 import {
   FlatList,
@@ -12,7 +11,7 @@ import AppHOC from "../../AppHOC";
 import { SearchButton } from "organisms";
 import { Flex, Text } from "atoms";
 import { Mixins, Spacing, Colors } from "styles";
-import { CardSlider } from "molecules";
+import { CardSlider, MovieCard } from "molecules";
 import Animated from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
 import { SectionHeading, ThrailerCard } from "molecules";
@@ -92,7 +91,7 @@ const Slider = ({ moviesList }) => {
         onViewableItemsChanged={onViewRef.current}
         viewabilityConfig={viewConfigRef.current}
         contentContainerStyle={{
-          height: Mixins.WINDOW_HEIGHT * 0.62,
+          height: Mixins.WINDOW_HEIGHT * 0.55,
           paddingHorizontal: Spacing.WRAP
         }}
         data={moviesList}
@@ -161,18 +160,28 @@ const NewMovies = ({ newMoviesList }) => {
   return (
     <>
       <SectionHeading title="Opening This Week" />
+
+      <Flex
+        style={{ paddingHorizontal: Spacing.WRAP, flexWrap: "wrap" }}
+        layout="space-between flex-start"
+        dir="row"
+      >
+        {newMoviesList.map(item => (
+          <MovieCard data={item} key={item.id} />
+        ))}
+      </Flex>
     </>
   );
 };
 
-const Movies = ({ moviesList, thrailersList }) => {
+const Movies = ({ moviesList, thrailersList, newMoviesList }) => {
   return (
     <>
       <Slider moviesList={moviesList} />
 
       <Thrailers thrailersList={thrailersList} />
 
-      <NewMovies />
+      <NewMovies newMoviesList={newMoviesList} />
     </>
   );
 };

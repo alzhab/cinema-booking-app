@@ -25,7 +25,30 @@ const initialState = {
       tags: ["action", "crime", "thriller"]
     }
   ],
-  thrailersList: [{}, {}, {}]
+  thrailersList: [{}, {}, {}],
+  newMoviesList: [
+    {
+      id: "1",
+      image: require("assets/images/poster.jpg"),
+      title: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt
+      aliquam provident amet, vero dolorum sequi!`,
+      tags: ["action", "crime", "thriller"]
+    },
+    {
+      id: "2",
+      image: require("assets/images/poster.jpg"),
+      title: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt
+      aliquam provident amet, vero dolorum sequi!`,
+      tags: ["action", "crime", "thriller"]
+    },
+    {
+      id: "3",
+      image: require("assets/images/poster.jpg"),
+      title: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt
+      aliquam provident amet, vero dolorum sequi!`,
+      tags: ["action", "crime", "thriller"]
+    }
+  ]
 };
 
 const reducer = (state = initialState, action) => {
