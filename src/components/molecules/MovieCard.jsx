@@ -21,8 +21,8 @@ const MovieCard = ({ data, row, ...props }) => {
       >
         <Flex
           style={{
-            borderRadius: 45,
-            height: row ? 150 : 300,
+            borderRadius: 20,
+            height: row ? 150 : 250,
             width: row ? "42%" : "100%",
             overflow: "hidden",
             marginBottom: 15,

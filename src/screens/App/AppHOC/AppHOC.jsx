@@ -5,7 +5,8 @@ import {
   ScrollView,
   StatusBar,
   ImageBackground,
-  StyleSheet
+  StyleSheet,
+  Image
 } from "react-native";
 import { AppHeader, Loading } from "molecules";
 import { Mixins, Colors } from "styles";
@@ -37,10 +38,18 @@ const AppHOC = (Component, options) => {
                 height: hero.height ? hero.height : Mixins.WINDOW_HEIGHT * 0.5,
                 backgroundColor: Colors.SECOND_BG,
                 borderBottomLeftRadius: 25,
-                borderBottomRightRadius: 25
+                borderBottomRightRadius: 25,
+                overflow: "hidden"
               }}
             >
-              {hero.image && <Image style={StyleSheet.absoluteFill} />}
+              {hero.image && (
+                <Image
+                  source={hero.image}
+                  style={
+                    (StyleSheet.absoluteFill, { width: "100%", height: "100%" })
+                  }
+                />
+              )}
             </Flex>
           )}
 

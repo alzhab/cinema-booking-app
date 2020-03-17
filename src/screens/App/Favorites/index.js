@@ -2,7 +2,9 @@ import { connect } from "react-redux";
 import Favorites from "./Favorites";
 
 const mapStateToProps = state => {
-  return {};
+  const { movies } = state.moviesSearch;
+
+  return { movies };
 };
 
 const mapDispatchToProps = dispatch => {

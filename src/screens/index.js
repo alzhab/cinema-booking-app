@@ -16,8 +16,7 @@ import {
   MovieThrailer,
   MovieDetail,
   Notifications,
-  Favorites,
-  Theatres
+  Favorites
 } from "./App";
 
 export {
@@ -35,6 +34,5 @@ export {
   MovieDetail,
   Notifications,
   Favorites,
-  Theatres,
   Country
 };

@@ -2,7 +2,8 @@ import { connect } from "react-redux";
 import Notifications from "./Notifications";
 
 const mapStateToProps = state => {
-  return {};
+  const { movies } = state.notifications;
+  return { movies };
 };
 
 const mapDispatchToProps = dispatch => {

@@ -8,7 +8,6 @@ import {
 } from "./MoviesStack";
 import Notifications from "./Notifications";
 import Favorites from "./Favorites";
-import Theatres from "./Theatres";
 
 export {
   AppHOC,
@@ -19,7 +18,6 @@ export {
   MovieDetail,
   Notifications,
   Favorites,
-  Theatres,
   Edit,
   Language,
   Country

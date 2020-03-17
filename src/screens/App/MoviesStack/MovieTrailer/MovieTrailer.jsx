@@ -79,7 +79,7 @@ const MovieInfo = ({ data }) => {
 
 const Recomendataions = ({ list }) => {
   return list.map(movie => (
-    <Flex style={{ width: "100%" }} key={list.id}>
+    <Flex style={{ width: "100%" }} key={movie.id}>
       <MovieCard data={movie} row />
       <Flex
         style={{

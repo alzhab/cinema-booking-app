@@ -3,7 +3,7 @@
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { Movies, Notifications, Favorites, Theatres } from "screens";
+import { Movies, Notifications, Favorites } from "screens";
 import { connect } from "react-redux";
 import { TabBar } from "organisms";
 import ProfileNavigation from "./ProfileNavigation";
@@ -40,13 +40,7 @@ function AppNavigator({ loadingScreens }) {
           icon: "star"
         }}
       />
-      <BottomTab.Screen
-        name="Theatres"
-        component={Theatres}
-        options={{
-          icon: "theaters"
-        }}
-      />
+
       <BottomTab.Screen
         name="Profile"
         component={ProfileNavigation}
