@@ -2,7 +2,9 @@ import { connect } from "react-redux";
 import MoviesSearch from "./MoviesSearch";
 
 const mapStateToProps = state => {
-  return {};
+  const { movies } = state.moviesSearch;
+
+  return { movies };
 };
 
 const mapDispatchToProps = dispatch => {

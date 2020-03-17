@@ -34,7 +34,7 @@ const AppHOC = (Component, options) => {
                 top: 0,
                 left: 0,
                 right: 0,
-                height: hero.height ? hero.height : Mixins.WINDOW_HEIGHT * 0.45,
+                height: hero.height ? hero.height : Mixins.WINDOW_HEIGHT * 0.5,
                 backgroundColor: Colors.SECOND_BG,
                 borderBottomLeftRadius: 25,
                 borderBottomRightRadius: 25

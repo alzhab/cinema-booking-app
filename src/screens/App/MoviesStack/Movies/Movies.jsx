@@ -117,7 +117,7 @@ const Slider = ({ moviesList }) => {
       <Flex
         dir="row"
         justifyContent="center"
-        style={{ width: "100%", marginBottom: 20 }}
+        style={{ width: "100%", marginBottom: 20, marginTop: 20 }}
       >
         {moviesList.map((item, index) => (
           <Indicator isActive={index === activeItemIndex} key={index} />
@@ -167,7 +167,9 @@ const NewMovies = ({ newMoviesList }) => {
         dir="row"
       >
         {newMoviesList.map(item => (
-          <MovieCard data={item} key={item.id} />
+          <Flex style={{ width: "48%", marginBottom: 30 }} key={item.id}>
+            <MovieCard data={item} />
+          </Flex>
         ))}
       </Flex>
     </>

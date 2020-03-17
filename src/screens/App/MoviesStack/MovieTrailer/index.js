@@ -2,7 +2,9 @@ import { connect } from "react-redux";
 import MovieTrailer from "./MovieTrailer";
 
 const mapStateToProps = state => {
-  return {};
+  const { movie, recomendations } = state.movieTrailer;
+
+  return { movie, recomendations };
 };
 
 const mapDispatchToProps = dispatch => {

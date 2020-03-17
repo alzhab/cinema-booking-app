@@ -16,7 +16,7 @@ const AppHeader = ({ headerTitle, HeaderRight, back, ...props }) => {
       style={{
         paddingHorizontal: Spacing.WRAP,
         paddingTop: Mixins.WINDOW_HEIGHT * 0.02,
-        marginBottom: Mixins.WINDOW_HEIGHT * 0.05,
+        marginBottom: Mixins.WINDOW_HEIGHT * 0.03,
         ...props.style
       }}
     >
