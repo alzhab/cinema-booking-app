@@ -3,14 +3,22 @@ import { Text, Flex } from "atoms";
 import { Spacing } from "styles";
 import { TouchableOpacity } from "react-native";
 
-const SectionHeading = ({ title, rightButton, rightTitle = "view all" }) => {
+const SectionHeading = ({
+  title,
+  rightButton,
+  rightTitle = "view all",
+  full
+}) => {
   return (
     <Flex dir="row" layout="space-between center">
       <Text
         size={17}
         family="700"
         textTransform="capitalize"
-        style={{ paddingHorizontal: Spacing.WRAP, paddingBottom: 25 }}
+        style={{
+          paddingHorizontal: full ? 0 : Spacing.WRAP,
+          paddingBottom: 25
+        }}
       >
         {title}
       </Text>

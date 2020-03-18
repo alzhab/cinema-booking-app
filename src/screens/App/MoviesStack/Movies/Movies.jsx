@@ -144,13 +144,7 @@ const Thrailers = ({ thrailersList }) => {
         )}
         showsHorizontalScrollIndicator={false}
         style={{ paddingHorizontal: Spacing.WRAP }}
-        renderItem={({ item, index }) => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate("MovieThrailer")}
-          >
-            <ThrailerCard />
-          </TouchableOpacity>
-        )}
+        renderItem={({ item, index }) => <ThrailerCard />}
       />
     </>
   );

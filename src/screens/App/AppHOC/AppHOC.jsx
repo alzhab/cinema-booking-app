@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { AppHeader, Loading } from "molecules";
 import { Mixins, Colors } from "styles";
+import { LinearGradient } from "expo-linear-gradient";
 
 const AppHOC = (Component, options) => {
   const {
@@ -43,15 +44,35 @@ const AppHOC = (Component, options) => {
               }}
             >
               {hero.image && (
-                <Image
-                  source={hero.image}
-                  style={
-                    (StyleSheet.absoluteFill, { width: "100%", height: "100%" })
-                  }
-                />
+                <>
+                  <Image
+                    source={hero.image}
+                    style={
+                      (StyleSheet.absoluteFill,
+                      { width: "100%", height: "100%" })
+                    }
+                  />
+                  <LinearGradient
+                    colors={["#fd5c4870", "#9a38e770"]}
+                    style={StyleSheet.absoluteFill}
+                  ></LinearGradient>
+                </>
               )}
             </Flex>
           )}
+
+          <AppHeader
+            headerTitle={headerTitle}
+            HeaderRight={HeaderRight}
+            back={back}
+            style={{
+              position: "relative",
+              zIndex: 3,
+              paddingTop: headerTop
+                ? Mixins.WINDOW_HEIGHT * 0.02 - headerTop
+                : Mixins.WINDOW_HEIGHT * 0.02
+            }}
+          />
 
           <ScrollView
             nestedScrollEnabled
@@ -61,17 +82,6 @@ const AppHOC = (Component, options) => {
               marginBottom: Mixins.WINDOW_HEIGHT * 0.05 + 65 + 30 + 10
             }}
           >
-            <AppHeader
-              headerTitle={headerTitle}
-              HeaderRight={HeaderRight}
-              back={back}
-              style={{
-                paddingTop: headerTop
-                  ? Mixins.WINDOW_HEIGHT * 0.02 - headerTop
-                  : Mixins.WINDOW_HEIGHT * 0.02
-              }}
-            />
-
             <Component {...props} />
           </ScrollView>
         </Container>
