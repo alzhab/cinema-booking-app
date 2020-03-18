@@ -1,4 +1,3 @@
-//TODO AUTH HOC SEARCH COMPONENT
 import React, { useState } from "react";
 import { Container, Flex } from "atoms";
 import { ScrollView, StyleSheet, Animated, Image, Easing } from "react-native";

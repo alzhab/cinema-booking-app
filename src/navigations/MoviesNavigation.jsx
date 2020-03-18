@@ -16,7 +16,6 @@ function MoviesNavigation() {
       }}
     >
       <Stack.Screen name="Movies" component={Movies} />
-      <Stack.Screen name="MoviesSearch" component={MoviesSearch} />
       <Stack.Screen name="MovieThrailer" component={MovieThrailer} />
       <Stack.Screen name="MovieDetail" component={MovieDetail} />
     </Stack.Navigator>

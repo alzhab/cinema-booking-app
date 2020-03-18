@@ -5,6 +5,8 @@ import { Flex, Text } from "atoms";
 import { Spacing, Colors, Mixins } from "styles";
 import { ThrailerCard, SectionHeading } from "molecules";
 import { FlatList } from "react-native";
+import { Icon } from "native-base";
+import { TouchableOpacity } from "react-native";
 
 const MovieInfo = ({ data }) => {
   return (
@@ -36,18 +38,43 @@ const MovieInfo = ({ data }) => {
         >
           IMDb
         </Text>
-        <Text family="700" size={14}>
+        <Text family="700" size={18}>
           {data.rating}
         </Text>
       </Flex>
 
-      <Text family="700" size={22} maxLines={1} style={{ marginBottom: 13 }}>
-        {data.title}
-      </Text>
+      <Flex style={{ width: "100%" }} dir="row" layout="space-between center">
+        <Flex>
+          <Text
+            family="700"
+            size={22}
+            maxLines={1}
+            style={{ marginBottom: 13 }}
+          >
+            {data.title}
+          </Text>
 
-      <Text size={18} textTransform="capitalize">
-        {data.tags.join(", ")}
-      </Text>
+          <Text size={18} textTransform="capitalize">
+            {data.tags.join(", ")}
+          </Text>
+        </Flex>
+        <TouchableOpacity
+          style={{
+            padding: 10,
+            backgroundColor: Colors.MAIN_TEXT,
+            borderWidth: 2,
+            borderRadius: 50
+          }}
+        >
+          <Icon
+            type="FontAwesome5"
+            name="ticket-alt"
+            style={{
+              color: Colors.MAIN_BG
+            }}
+          />
+        </TouchableOpacity>
+      </Flex>
     </Flex>
   );
 };

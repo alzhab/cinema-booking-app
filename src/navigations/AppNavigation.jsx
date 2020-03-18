@@ -1,54 +1,31 @@
 //TODO Ticket Booking Navigator
-//TODO Сменить AppNavigation на StackNavigator {TabBar && TicketScreen}
 
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Movies, Notifications, Favorites } from "screens";
 import { connect } from "react-redux";
 import { TabBar } from "organisms";
 import ProfileNavigation from "./ProfileNavigation";
 import MoviesNavigation from "./MoviesNavigation";
+import {
+  createStackNavigator,
+  CardStyleInterpolators
+} from "@react-navigation/stack";
+import BottomBarNavigation from "./BottomBarNavigation";
+import { MoviesSearch } from "screens";
 
-const BottomTab = createBottomTabNavigator();
+const App = createStackNavigator();
 
 function AppNavigator({ loadingScreens }) {
   return (
-    <BottomTab.Navigator
-      tabBar={props => <TabBar {...props} loadingScreens={loadingScreens} />}
+    <App.Navigator
+      headerMode="none"
+      screenOptions={{
+        cardStyleInterpolator: CardStyleInterpolators.forRevealFromBottomAndroid
+      }}
     >
-      <BottomTab.Screen
-        name="Movies"
-        component={MoviesNavigation}
-        options={{
-          icon: "movie-creation",
-          tabBar: {
-            visible: false
-          }
-        }}
-      />
-      <BottomTab.Screen
-        name="Notifications"
-        component={Notifications}
-        options={{
-          icon: "notifications-active"
-        }}
-      />
-      <BottomTab.Screen
-        name="Favorite"
-        component={Favorites}
-        options={{
-          icon: "star"
-        }}
-      />
-
-      <BottomTab.Screen
-        name="Profile"
-        component={ProfileNavigation}
-        options={{
-          icon: "person"
-        }}
-      />
-    </BottomTab.Navigator>
+      <App.Screen name="App" component={BottomBarNavigation} />
+      <App.Screen name="MoviesSearch" component={MoviesSearch} />
+    </App.Navigator>
   );
 }
 
