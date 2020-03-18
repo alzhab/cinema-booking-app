@@ -135,7 +135,7 @@ const ThrailersList = ({ list }) => {
         ItemSeparatorComponent={() => <Flex style={{ width: 15 }} />}
         data={list}
         renderItem={({ item }) => <ThrailerCard withGradient={false} />}
-        keyExtractor={(item, index) => index}
+        keyExtractor={(item, index) => index.toString()}
       />
     </Flex>
   );
