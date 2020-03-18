@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { Container, Flex } from "atoms";
+import {
+  Container,
+  Flex
+} from "../TicketBookingStack/Payment/node_modules/atoms";
 import { ScrollView, StyleSheet, Animated, Image, Easing } from "react-native";
 import { AppHeader, Loading } from "molecules";
-import { Mixins, Colors } from "styles";
+import {
+  Mixins,
+  Colors
+} from "../TicketBookingStack/Payment/node_modules/styles";
 import { LinearGradient } from "expo-linear-gradient";
 
 const AppHOC = (Component, options) => {

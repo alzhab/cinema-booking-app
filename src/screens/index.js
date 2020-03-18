@@ -16,7 +16,10 @@ import {
   MovieThrailer,
   MovieDetail,
   Notifications,
-  Favorites
+  Favorites,
+  TicketBooking,
+  Payment,
+  OrderConfirmation
 } from "./App";
 
 export {
@@ -34,5 +37,8 @@ export {
   MovieDetail,
   Notifications,
   Favorites,
-  Country
+  Country,
+  TicketBooking,
+  Payment,
+  OrderConfirmation
 };

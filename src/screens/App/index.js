@@ -8,6 +8,11 @@ import {
 } from "./MoviesStack";
 import Notifications from "./Notifications";
 import Favorites from "./Favorites";
+import {
+  TicketBooking,
+  Payment,
+  OrderConfirmation
+} from "./TicketBookingStack";
 
 export {
   AppHOC,
@@ -20,5 +25,8 @@ export {
   Favorites,
   Edit,
   Language,
+  TicketBooking,
+  Payment,
+  OrderConfirmation,
   Country
 };

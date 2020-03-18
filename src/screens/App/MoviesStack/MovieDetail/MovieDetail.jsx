@@ -9,6 +9,8 @@ import { Icon } from "native-base";
 import { TouchableOpacity } from "react-native";
 
 const MovieInfo = ({ data }) => {
+  const navigation = useNavigation();
+
   return (
     <Flex
       style={{
@@ -59,6 +61,9 @@ const MovieInfo = ({ data }) => {
           </Text>
         </Flex>
         <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("TicketBookingNavigator");
+          }}
           style={{
             padding: 10,
             backgroundColor: Colors.MAIN_TEXT,
@@ -70,7 +75,7 @@ const MovieInfo = ({ data }) => {
             type="FontAwesome5"
             name="ticket-alt"
             style={{
-              color: Colors.MAIN_BG
+              color: Colors.SECOND_BG
             }}
           />
         </TouchableOpacity>
