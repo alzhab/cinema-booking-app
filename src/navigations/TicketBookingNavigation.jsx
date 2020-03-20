@@ -1,4 +1,5 @@
-//TODO Ticket Booking Navigator
+//TODO TicketNavigation: TicketBooking, Payment, OrderConfirmation
+//TODO Components: Checkbox, Seat, SeatsTable,
 import React from "react";
 import {
   createStackNavigator,

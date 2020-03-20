@@ -14,7 +14,7 @@ import CardSlider from "./CardSlider";
 import SectionHeading from "./SectionHeading";
 import ThrailerCard from "./ThrailerCard";
 import MovieCard from "./MovieCard";
-
+import SelectButton from "./SelectButton";
 export {
   Logo,
   SliderIndicators,
@@ -31,5 +31,6 @@ export {
   CardSlider,
   SectionHeading,
   ThrailerCard,
-  MovieCard
+  MovieCard,
+  SelectButton
 };

@@ -6,6 +6,8 @@ import { Spacing } from "styles";
 import { useNavigation } from "@react-navigation/native";
 
 const Button = ({ button, gradientStyle, full, children, ...props }) => {
+  const { title, onPress = () => {} } = button;
+
   return (
     <TouchableOpacity
       style={{
@@ -14,7 +16,7 @@ const Button = ({ button, gradientStyle, full, children, ...props }) => {
         ...props.style
       }}
       onPress={async () => {
-        button.onPress();
+        onPress();
       }}
     >
       <LinearGradient
@@ -29,14 +31,14 @@ const Button = ({ button, gradientStyle, full, children, ...props }) => {
         }}
       >
         <Flex layout="center center">
-          {button.title ? (
+          {title ? (
             <Text
               align="center"
               textTransform="capitalize"
               size={25}
               family="700"
             >
-              {button.title}
+              {title}
             </Text>
           ) : (
             children

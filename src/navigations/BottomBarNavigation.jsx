@@ -5,12 +5,16 @@ import { connect } from "react-redux";
 import { TabBar } from "organisms";
 import ProfileNavigation from "./ProfileNavigation";
 import MoviesNavigation from "./MoviesNavigation";
+import { CardStyleInterpolators } from "@react-navigation/stack";
 
 const BottomTab = createBottomTabNavigator();
 
 function BottomBarNavigation({ loadingScreens }) {
   return (
     <BottomTab.Navigator
+      screenOptions={{
+        cardStyleInterpolator: CardStyleInterpolators.forRevealFromBottomAndroid
+      }}
       tabBar={props => <TabBar {...props} loadingScreens={loadingScreens} />}
     >
       <BottomTab.Screen

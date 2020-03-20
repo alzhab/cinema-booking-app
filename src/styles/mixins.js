@@ -62,3 +62,13 @@ export const checkConfirmPasswordValid = ({ password, confirmPassword }) => {
 
   return true;
 };
+
+export const emptyArray = length => {
+  var data = [];
+
+  for (var i = 0; i < length; i++) {
+    data.push(0);
+  }
+
+  return data;
+};

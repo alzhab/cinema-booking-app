@@ -1,4 +1,3 @@
-//TODO Ticket Booking Navigator
 import React from "react";
 import {
   createStackNavigator,

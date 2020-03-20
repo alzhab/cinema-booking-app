@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import {
-  Container,
-  Flex
-} from "../TicketBookingStack/Payment/node_modules/atoms";
+import { Container, Flex } from "atoms";
 import { ScrollView, StyleSheet, Animated, Image, Easing } from "react-native";
 import { AppHeader, Loading } from "molecules";
-import {
-  Mixins,
-  Colors
-} from "../TicketBookingStack/Payment/node_modules/styles";
+import { Mixins, Colors } from "styles";
 import { LinearGradient } from "expo-linear-gradient";
 
 const AppHOC = (Component, options) => {
@@ -18,6 +12,7 @@ const AppHOC = (Component, options) => {
     HeaderRight = null,
     headerTop = 0,
     hero = null,
+    full = false,
     screenName = headerTitle.replace(/ /g, "")
   } = options;
 
@@ -113,7 +108,9 @@ const AppHOC = (Component, options) => {
             style={{
               position: "relative",
               zIndex: 2,
-              marginBottom: Mixins.WINDOW_HEIGHT * 0.05 + 65 + 30 + 10
+              marginBottom: full
+                ? 0
+                : Mixins.WINDOW_HEIGHT * 0.05 + 65 + 30 + 10
             }}
           >
             <Component {...props} />
