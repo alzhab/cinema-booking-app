@@ -236,7 +236,7 @@ const SeatsTableHeading = ({ data }) => {
   );
 };
 
-const SeatsTable = ({ row, column, space }) => {
+const SeatsTable = ({ row, column, space, setSeat }) => {
   return (
     <>
       <SeatsTableHeading />
